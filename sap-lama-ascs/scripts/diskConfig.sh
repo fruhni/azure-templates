@@ -237,6 +237,14 @@ then
   systemctl restart nfsserver
   systemctl enable nfsserver
 fi
+if [[ $osVersion =~ REDHAT ]]
+then
+	service firewalld stop
+	systemctl disable firewalld
+
+	sed -i --follow-symlinks -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+fi
+
 
 chmod -t /tmp -R
 

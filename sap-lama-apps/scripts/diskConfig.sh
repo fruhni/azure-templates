@@ -231,6 +231,15 @@ chmod 0600 /mnt/resource/swapfile
 mkswap /mnt/resource/swapfile
 swapon /mnt/resource/swapfile
 
+osVersion=$(cat /etc/os-release)
+if [[ $osVersion =~ REDHAT ]]
+then
+	service firewalld stop
+	systemctl disable firewalld
+
+	sed -i --follow-symlinks -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+fi
+
 chmod -t /tmp -R
 
 exit
