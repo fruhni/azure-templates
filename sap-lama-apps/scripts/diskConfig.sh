@@ -234,8 +234,10 @@ swapon /mnt/resource/swapfile
 osVersion=$(cat /etc/os-release)
 if [[ $osVersion =~ REDHAT ]]
 then
+  log "Running on RHEL, disabling firewall"
 	service firewalld stop
 	systemctl disable firewalld
+  systemctl stop firewalld
 
 	sed -i --follow-symlinks -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 fi
