@@ -29,14 +29,14 @@
         "osType": {
             "type": "string",
             "allowedValues": [
-                "Windows Server 2012 Datacenter",
+                "Windows Server 2019 Datacenter",
                 "Windows Server 2012 R2 Datacenter",
                 "Windows Server 2016 Datacenter",
                 "SLES 12",
                 "RHEL 7",
                 "Oracle Linux 7"
             ],
-            "defaultValue": "Windows Server 2016 Datacenter",
+            "defaultValue": "Windows Server 2019 Datacenter",
             "metadata": {
                 "description": "The type of the operating system you want to deploy."
             }
@@ -189,8 +189,8 @@
     "variables": {
         "selectedZones":"[if(equals(parameters('availabilityZone'),0), json('null'), array(parameters('availabilityZone')))]",
         "images": {
-            "Windows Server 2012 Datacenter": {
-                "sku": "2012-Datacenter",
+            "Windows Server 2019 Datacenter": {
+                "sku": "2019-Datacenter",
                 "offer": "WindowsServer",
                 "publisher": "MicrosoftWindowsServer",
                 "OSType": "Windows",
