@@ -34,7 +34,7 @@
                 "Windows Server 2016 Datacenter",
                 "SLES 12",
                 "RHEL 7",
-                "RHEL"
+                "RHEL",
                 "Oracle Linux 7"
             ],
             "defaultValue": "Windows Server 2019 Datacenter",
