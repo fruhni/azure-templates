@@ -232,7 +232,7 @@
             },
             "RHEL 7": {
                 "sku": "7.6",
-                "offer": "RHEL",
+                "offer": "RHEL-SAP",
                 "publisher": "RedHat",
                 "OSType": "Linux",
                 "osDiskSize": 128
