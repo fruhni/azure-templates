@@ -47,6 +47,7 @@
                 "Windows Server 2016 Datacenter",
                 "SLES 12",
                 "RHEL 7",
+                "RHEL",
                 "Oracle Linux 7"
             ],
             "defaultValue": "Windows Server 2019 Datacenter",
@@ -251,6 +252,13 @@
             "RHEL 7": {
                 "sku": "7.6",
                 "offer": "RHEL",
+                "publisher": "RedHat",
+                "OSType": "Linux",
+                "osDiskSize": 128
+            },
+            "RHEL": {
+                "sku": "8.2",
+                "offer": "RHEL-SAP-HA",
                 "publisher": "RedHat",
                 "OSType": "Linux",
                 "osDiskSize": 128
