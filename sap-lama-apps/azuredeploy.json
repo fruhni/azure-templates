@@ -46,6 +46,7 @@
                 "Windows Server 2012 R2 Datacenter",
                 "Windows Server 2016 Datacenter",
                 "SLES 12",
+                "SLES",
                 "RHEL 7",
                 "RHEL",
                 "Oracle Linux 7"
@@ -245,6 +246,13 @@
             "SLES 12": {
                 "sku": "12-SP4",
                 "offer": "SLES-SAP",
+                "publisher": "SUSE",
+                "OSType": "Linux",
+                "osDiskSize": 128
+            },
+            "SLES": {
+                "sku": "gen1",
+                "offer": "SLES-15-sp2",
                 "publisher": "SUSE",
                 "OSType": "Linux",
                 "osDiskSize": 128
