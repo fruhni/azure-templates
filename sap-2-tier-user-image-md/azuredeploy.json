@@ -80,6 +80,13 @@
         "description": "The id of the subnet you want to use."
       }
     },
+    "vnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The id of the vnet you want to use."
+      }
+    },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
@@ -280,8 +287,6 @@
     "internalExtensionScriptCallArgs": "[variables('vmSizes')[parameters('sapSystemSize')][parameters('storageType')].scriptArgs]",
     "sidlower": "[toLower(parameters('sapSystemId'))]",
     "vmName": "[concat(variables('sidlower'), '-servercs')]",
-    "vnetName": "[concat(variables('sidlower'), '-vnet')]",
-    "publicIpName": "[concat(variables('sidlower'), '-pip')]",
     "nicName": "[concat(variables('sidlower'), '-nic')]",
     "nsgName": "[concat(variables('sidlower'), '-nsg-cs')]",
     "storageTypes": {
@@ -356,6 +361,9 @@
           },
           "subnetId": {
             "value": "[parameters('subnetId')]"
+          },
+          "vnetId": {
+            "value": "[parameters('vnetId')]"
           }
         }
       }
