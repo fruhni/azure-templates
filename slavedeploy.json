@@ -1,0 +1,73 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "cseExtPublisher": {
+            "type": "string"
+        },
+        "cseExtType": {
+            "type": "string"
+        },
+        "cseExtName": {
+            "type": "string"
+        },
+        "cseExtVersion": {
+            "type": "string"
+        },
+        "customData": {
+            "type": "string"
+        },
+        "osType": {
+            "type": "string",
+            "allowedValues": [
+                "Linux",
+                "Windows"
+            ],
+            "defaultValue": "Linux"
+        },
+        "adminUsername": {
+          "type": "string",
+          "defaultValue": "",
+          "metadata": {
+            "description": "Username for the Virtual Machine."
+          }
+        },
+        "adminPassword": {
+          "type": "securestring",
+          "defaultValue": "",
+          "metadata": {
+            "description": "Password for the Virtual Machine."
+          }
+        }
+    },
+    "variables": {
+        "commands": {
+            "Windows": "[concat('powershell -executionpolicy bypass -command $cmd = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String(''', parameters('customData') ,'''));mkdir c:\\sapcd;Out-File -InputObject $cmd -FilePath c:\\sapcd\\init.ps1 -force;invoke-Expression ''c:\\sapcd\\init.ps1 -Password ', parameters('adminPassword'), ' -User ', parameters('adminUsername'), ' '' ')]",
+            "Linux": "[concat('echo \"', parameters('customData'), '\" | base64 --decode | sh')]"
+        }
+
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('vmName'), '/', parameters('cseExtName'))]",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publisher": "[parameters('cseExtPublisher')]",
+                "type": "[parameters('cseExtType')]",
+                "typeHandlerVersion": "[parameters('cseExtVersion')]",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    
+                },
+                "protectedSettings": {
+                    "commandToExecute": "[variables('commands')[parameters('osType')]]"
+                }
+            }
+        }
+    ]
+}
