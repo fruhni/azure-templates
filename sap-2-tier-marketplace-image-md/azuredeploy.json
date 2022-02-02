@@ -77,11 +77,25 @@
         "description": "Password or ssh key for the Virtual Machine."
       }
     },
+    "vmName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The name of the VM you want to deploy."
+      }
+    },
     "subnetId": {
       "type": "string",
       "defaultValue": "",
       "metadata": {
         "description": "The id of the subnet you want to use."
+      }
+    },
+    "vnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The id of the vnet you want to use."
       }
     },
     "availabilityZone": {
@@ -833,7 +847,7 @@
       }
     },
     "sidlower": "[toLower(parameters('sapSystemId'))]",
-    "vmName": "[concat(variables('sidlower'), '-servercs')]",
+    "vmName": "[parameters('vmName')]",
     "vnetName": "[concat(variables('sidlower'), '-vnet')]",
     "nicName": "[concat(variables('sidlower'), '-nic')]",
     "nsgName": "[concat(variables('sidlower'), '-nsg-cs')]",
