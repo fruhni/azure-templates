@@ -17,6 +17,8 @@
         "Windows Server 2012 Datacenter",
         "Windows Server 2012 R2 Datacenter",
         "Windows Server 2016 Datacenter",
+        "Windows Server 2019 Datacenter",
+        "Windows Server 2022 Datacenter",
         "SLES 12",
         "RHEL 7",
         "Oracle Linux 7"
@@ -130,6 +132,18 @@
       },
       "Windows Server 2016 Datacenter": {
         "sku": "2016-Datacenter",
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "OSType": "Windows"
+      },
+      "Windows Server 2019 Datacenter": {
+        "sku": "2019-Datacenter",
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "OSType": "Windows"
+      },
+      "Windows Server 2022 Datacenter": {
+        "sku": "2022-Datacenter",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
         "OSType": "Windows"
@@ -821,7 +835,6 @@
     "sidlower": "[toLower(parameters('sapSystemId'))]",
     "vmName": "[concat(variables('sidlower'), '-servercs')]",
     "vnetName": "[concat(variables('sidlower'), '-vnet')]",
-    "publicIpName": "[concat(variables('sidlower'), '-pib')]",
     "nicName": "[concat(variables('sidlower'), '-nic')]",
     "nsgName": "[concat(variables('sidlower'), '-nsg-cs')]",
     "subnetName": "Subnet",
@@ -917,25 +930,11 @@
       }
     },
     {
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[variables('publicIpName')]",
-      "apiVersion": "2018-10-01",
-      "condition": "[equals(length(parameters('subnetId')), 0)]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]"
-      ],
-      "location": "[parameters('location')]",
-      "properties": {
-        "publicIPAllocationMethod": "Dynamic"
-      }
-    },
-    {
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('nicName')]",
       "apiVersion": "2018-10-01",
       "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]",
-        "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpName'))]"
+        "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]"
       ],
       "location": "[parameters('location')]",
       "properties": {
@@ -944,7 +943,6 @@
             "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": "[if(equals(length(parameters('subnetId')), 0), json(concat('{\"id\": \"', resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpName')) ,'\"}')), json('null'))]",
               "subnet": {
                 "id": "[variables('selectedSubnetId')]"
               }
