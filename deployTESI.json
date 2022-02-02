@@ -26,7 +26,7 @@
                 "Linux",
                 "Windows"
             ],
-            "defaultValue": "Windows"
+            "defaultValue": "Linux"
         },
         "adminUsername": {
           "type": "string",
@@ -41,25 +41,11 @@
           "metadata": {
             "description": "Password for the Virtual Machine."
           }
-        },
-        "shareUsername": {
-          "type": "securestring",
-          "defaultValue": "",
-          "metadata": {
-            "description": "Username to mount share."
-          }
-        },
-        "sharePassword": {
-          "type": "securestring",
-          "defaultValue": "",
-          "metadata": {
-            "description": "Password to mount share."
-          }
         }
     },
     "variables": {
         "commands": {
-            "Windows": "",
+            "Windows": "[concat('powershell -executionpolicy bypass -command $cmd = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String(''', parameters('customData') ,'''));mkdir c:\\sapcd;Out-File -InputObject $cmd -FilePath c:\\sapcd\\init.ps1 -force;invoke-Expression ''c:\\sapcd\\init.ps1 -Password ', parameters('adminPassword'), ' -User ', parameters('adminUsername'))]",
             "Linux": "[concat('echo \"', parameters('customData'), '\" | base64 --decode | sh')]"
         }
 
