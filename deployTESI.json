@@ -59,7 +59,7 @@
     },
     "variables": {
         "commands": {
-            "Windows": "[concat('net use \\\\tesioqaccount.file.core.windows.net\\oqshare ', parameters('sharePassword'), ' /USER:', parameters('shareUsername'))]",
+            "Windows": "",
             "Linux": "[concat('echo \"', parameters('customData'), '\" | base64 --decode | sh')]"
         }
 
