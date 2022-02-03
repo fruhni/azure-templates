@@ -849,7 +849,6 @@
       "sidlower": "[toLower(parameters('sapSystemId'))]",
       "vnetName": "[concat(variables('sidlower'), '-vnet')]",
       "nicName": "[concat(variables('sidlower'), '-nic')]",
-      "nsgName": "[concat(variables('sidlower'), '-nsg-cs')]",
       "subnetName": "Subnet",
       "linuxConfiguration": {
         "disablePasswordAuthentication": true,
@@ -905,23 +904,10 @@
     },
     "resources": [
       {
-        "type": "Microsoft.Network/networkSecurityGroups",
-        "name": "[concat(variables('nsgName'))]",
-        "apiVersion": "2018-10-01",
-        "location": "[parameters('location')]",
-        "condition": "[equals(length(parameters('subnetId')), 0)]",
-        "properties": {
-          "securityRules": "[variables('selectedSecurityRules')]"
-        }
-      },
-      {
         "type": "Microsoft.Network/virtualNetworks",
         "name": "[variables('vnetName')]",
         "apiVersion": "2018-10-01",
         "location": "[parameters('location')]",
-        "dependsOn": [
-          "[concat('Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
-        ],
         "condition": "[equals(length(parameters('subnetId')), 0)]",
         "properties": {
           "addressSpace": {
@@ -933,10 +919,7 @@
             {
               "name": "[variables('subnetName')]",
               "properties": {
-                "addressPrefix": "10.0.0.0/24",
-                "networkSecurityGroup": {
-                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
-                }
+                "addressPrefix": "10.0.0.0/24"
               }
             }
           ]
