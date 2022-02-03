@@ -952,17 +952,6 @@
       ],
       "location": "[parameters('location')]",
       "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('selectedSubnetId')]"
-              }
-            }
-          }
-        ],
         "enableAcceleratedNetworking": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].useFastNetwork]"
       }
     },
