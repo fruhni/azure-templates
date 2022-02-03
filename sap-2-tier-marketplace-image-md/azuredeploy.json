@@ -847,7 +847,6 @@
       }
     },
     "sidlower": "[toLower(parameters('sapSystemId'))]",
-    "vmName": "[parameters('vmName')]",
     "vnetName": "[concat(variables('sidlower'), '-vnet')]",
     "nicName": "[concat(variables('sidlower'), '-nic')]",
     "nsgName": "[concat(variables('sidlower'), '-nsg-cs')]",
