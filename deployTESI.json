@@ -17,6 +17,9 @@
         "cseExtVersion": {
             "type": "string"
         },
+        "location": {
+            "type": "string"
+        },
         "customData": {
             "type": "string"
         },
@@ -69,7 +72,7 @@
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(parameters('vmName'), '/', parameters('cseExtName'))]",
             "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "properties": {
                 "publisher": "[parameters('cseExtPublisher')]",
                 "type": "[parameters('cseExtType')]",
