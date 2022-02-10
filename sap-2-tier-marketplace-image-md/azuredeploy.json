@@ -84,6 +84,13 @@
           "description": "The name of the VM you want to deploy."
         }
       },
+      "IPAddress": {
+        "type": "string",
+        "defaultValue": "",
+        "metadata": {
+          "description": "The private IP of the VM you want to deploy."
+        }
+      },
       "subnetId": {
         "type": "string",
         "defaultValue": "",
@@ -938,7 +945,8 @@
               {
                 "name": "ipconfig1",
                 "properties": {
-                  "privateIPAllocationMethod": "Dynamic",
+                  "privateIPAllocationMethod": "Static",
+                  "PrivateIpAddress": "[parameters('IPAddress')]",
                   "subnet": {
                     "id": "[variables('selectedSubnetId')]"
                   }
