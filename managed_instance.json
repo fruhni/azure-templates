@@ -17,7 +17,7 @@
         },
         "deployInExistingSubnet": {
             "type": "bool",
-            "defaultValue": false,
+            "defaultValue": true,
             "metadata": {
                 "description": "Determines whether the Managed Instance will be deployed in an existing subnet. Subnet parameters need to be valid if this is set."
             }
@@ -129,7 +129,7 @@
         },
         "collation": {
             "type": "string",
-            "defaultValue": "SQL_Latin1_General_CP1_CI_AS",
+            "defaultValue": "SQL_Latin1_General_CP850_BIN2",
             "metadata": {
                 "description": "Collation of the Managed Instance."
             }
@@ -174,7 +174,7 @@
         },
         "minimalTlsVersion": {
             "type": "string",
-            "defaultValue": "1.2",
+            "defaultValue": "1.0",
             "allowedValues": [
                 "1.0",
                 "1.1",
@@ -3278,6 +3278,7 @@
                 "requestedBackupStorageRedundancy": "[parameters('requestedBackupStorageRedundancy')]",
                 "zoneRedundant": "[parameters('zoneRedundant')]",
                 "primaryUserAssignedIdentityId": "[parameters('primaryUserAssignedIdentityId')]",
+                "maintenanceConfigurationId": "[parameters('maintenanceConfigurationId')]",
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
                 "administrators": "[parameters('administrators')]"
