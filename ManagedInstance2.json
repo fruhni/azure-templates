@@ -129,7 +129,7 @@
         },
         "collation": {
             "type": "string",
-            "defaultValue": "SQL_Latin1_General_CP1_CI_AS",
+            "defaultValue": "SQL_Latin1_General_CP850_BIN2",
             "metadata": {
                 "description": "Collation of the Managed Instance."
             }
@@ -259,8 +259,8 @@
     },
     "resources": [
         {
-            "condition": "[parameters('enableVA')]",
             "type": "Microsoft.Storage/storageAccounts",
+            "condition": "[parameters('enableVA')]",
             "apiVersion": "2019-04-01",
             "name": "[variables('storageName')]",
             "location": "[parameters('location')]",
@@ -3150,8 +3150,8 @@
                     },
                     "resources": [
                         {
-                            "condition": "[variables('createNetworkSecurityGroup')]",
                             "type": "Microsoft.Network/networkSecurityGroups",
+                            "condition": "[variables('createNetworkSecurityGroup')]",
                             "name": "[variables('defaultNetworkSecurityGroupName')]",
                             "apiVersion": "2020-05-01",
                             "location": "[parameters('location')]",
@@ -3170,8 +3170,8 @@
                             }
                         },
                         {
-                            "condition": "[variables('createRouteTable')]",
                             "type": "Microsoft.Network/routeTables",
+                            "condition": "[variables('createRouteTable')]",
                             "name": "[variables('defaultRouteTableName')]",
                             "apiVersion": "2020-05-01",
                             "location": "[parameters('location')]",
@@ -3191,8 +3191,8 @@
                             }
                         },
                         {
-                            "condition": "[and(parameters('deployInExistingSubnet'), or(variables('createNetworkSecurityGroup'), variables('createRouteTable'), variables('delegateToManagedInstance')))]",
                             "type": "Microsoft.Network/virtualNetworks/subnets",
+                            "condition": "[and(parameters('deployInExistingSubnet'), or(variables('createNetworkSecurityGroup'), variables('createRouteTable'), variables('delegateToManagedInstance')))]",
                             "name": "[concat(parameters('virtualNetworkName'), '/', parameters('subnetName'))]",
                             "apiVersion": "2020-05-01",
                             "dependsOn": [
@@ -3213,8 +3213,8 @@
                             }
                         },
                         {
-                            "condition": "[not(parameters('deployInExistingSubnet'))]",
                             "type": "Microsoft.Network/virtualNetworks",
+                            "condition": "[not(parameters('deployInExistingSubnet'))]",
                             "name": "[parameters('virtualNetworkName')]",
                             "apiVersion": "2020-05-01",
                             "location": "[parameters('location')]",
@@ -3284,8 +3284,8 @@
             },
             "resources": [
                 {
-                    "condition": "[parameters('enableADS')]",
                     "type": "securityAlertPolicies",
+                    "condition": "[parameters('enableADS')]",
                     "apiVersion": "2017-03-01-preview",
                     "name": "Default",
                     "dependsOn": [
@@ -3297,8 +3297,8 @@
                     }
                 },
                 {
-                    "condition": "[parameters('enableVA')]",
                     "type": "vulnerabilityAssessments",
+                    "condition": "[parameters('enableVA')]",
                     "apiVersion": "2018-06-01-preview",
                     "name": "Default",
                     "dependsOn": [
