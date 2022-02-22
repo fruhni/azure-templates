@@ -3316,7 +3316,9 @@
                     }
                 }
             ],
-            "identity": "[parameters('identity')]"
+            "identity": {
+            "type": "SystemAssigned"
+            }
         }
     ]
 }
