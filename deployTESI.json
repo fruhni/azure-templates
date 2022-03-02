@@ -27,7 +27,8 @@
             "type": "string",
             "allowedValues": [
                 "Linux",
-                "Windows"
+                "Windows",
+                "WindowsD"
             ],
             "defaultValue": "Windows"
         },
@@ -58,11 +59,24 @@
           "metadata": {
             "description": "Password to mount share."
           }
+        },
+        "Domain": {
+          "type": "string",
+          "defaultValue": "nt6.msp.corp"
+        },
+        "DomainUser": {
+          "type": "string",
+          "defaultValue": "sapadm"
+        },
+        "DomainPassword": {
+          "type": "string",
+          "defaultValue": "Walldorf2022!"
         }
     },
     "variables": {
         "commands": {
             "Windows": "[concat('IF EXIST c:\\sapcd rmdir /q /s c:\\sapcd & net use \\\\tesioqaccount.file.core.windows.net\\oqshare ', parameters('sharePassword'), ' /USER:', parameters('shareUsername'), ' & \\\\tesioqaccount.file.core.windows.net\\oqshare\\oq\\scripts\\install_TESI.bat -Azure ', parameters('adminPassword'), ' ', parameters('adminUsername'))]",
+            "WindowsD": "[concat('IF EXIST c:\\sapcd rmdir /q /s c:\\sapcd & net use \\\\tesioqaccount.file.core.windows.net\\oqshare ', parameters('sharePassword'), ' /USER:', parameters('shareUsername'), ' & \\\\tesioqaccount.file.core.windows.net\\oqshare\\oq\\scripts\\install_TESI.bat -Azure -JoinDomain -DomainUser ', parameters('DomainUser'), ' -DomainPassword ', parameters('DomainPassword'), ' ', parameters('adminPassword'), ' ', parameters('adminUsername'))]",
             "Linux": "[concat('echo \"', parameters('customData'), '\" | base64 --decode | sh')]"
         }
 
