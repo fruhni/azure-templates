@@ -251,7 +251,7 @@
             "properties": {
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-                "subnetId": "[parameters('subnetId']",
+                "subnetId": "[parameters('subnetId')]",
                 "storageSizeInGB": "[parameters('storageSizeInGB')]",
                 "vCores": "[parameters('vCores')]",
                 "licenseType": "[parameters('licenseType')]"
