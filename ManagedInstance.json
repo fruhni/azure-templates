@@ -203,10 +203,7 @@
                 "vCores": "[parameters('vCores')]",
                 "collation": "[parameters('collation')]",
                 "licenseType": "[parameters('licenseType')]"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]"
-            ]
+            }
         }
     ]
 }
