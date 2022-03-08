@@ -41,6 +41,13 @@
                 "description": "Enter subnet ID."
             }
         },
+        "collation": {
+            "type": "string",
+            "defaultValue": "SQL_Latin1_General_CP850_BIN2",
+            "metadata": {
+                "description": "Collation of the Managed Instance."
+            }
+        },
         "subnetPrefix": {
             "type": "string",
             "defaultValue": "10.0.0.0/24",
@@ -194,6 +201,7 @@
                 "subnetId": "[parameters('subnetId')]",
                 "storageSizeInGB": "[parameters('storageSizeInGB')]",
                 "vCores": "[parameters('vCores')]",
+                "collation": "[parameters('collation')]",
                 "licenseType": "[parameters('licenseType')]"
             },
             "dependsOn": [
