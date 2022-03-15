@@ -89,7 +89,7 @@ for ($index = 0; $index -lt $lunsSplit.Count; $index++)
             if (-not $volume)
             {
                 $partition = New-Partition -DiskId $disk.UniqueId @args
-                $partition | Format-Volume -FileSystem NTFS -NewFileSystemLabel $name -Confirm:$false;
+                $partition | Format-Volume -FileSystem ReFS -NewFileSystemLabel $name -Confirm:$false;
             }
 
             if ($path.Length -ne 1)
@@ -152,7 +152,7 @@ for ($index = 0; $index -lt $lunsSplit.Count; $index++)
             if (-not $volume)
             {
                 $partition = New-Partition -DiskId $disk.UniqueId @args
-                $partition | Format-Volume -FileSystem NTFS -NewFileSystemLabel $name -Confirm:$false;
+                $partition | Format-Volume -FileSystem ReFS -NewFileSystemLabel $name -Confirm:$false;
             }
 
             if ($path.Length -ne 1)
