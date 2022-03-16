@@ -326,7 +326,7 @@
             "vmSize": "Standard_E2s_v3",
             "disks": [
               {
-                "lun": 0,
+                "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
                 "diskSizeGB": 128,
@@ -336,8 +336,8 @@
               }
             ],
             "scriptArguments": {
-              "Linux": "-luns '0' -names 'usrsap' -paths '/usr/sap'  -sizes '100'",
-              "Windows": "-luns \"0\" -names \"sap\" -paths \"S\"  -sizes \"100\""
+              "Linux": "-luns '2' -names 'usrsap' -paths '/usr/sap'  -sizes '100'",
+              "Windows": "-luns \"2\" -names \"sap\" -paths \"S\"  -sizes \"100\""
             },
             "useFastNetwork": false
           }
