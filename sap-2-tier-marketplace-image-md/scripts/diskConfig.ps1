@@ -32,6 +32,8 @@ $pathsSplit = @($paths -split $SEP_CONFIGS)
 $sizesSplit = @($sizes -split $SEP_CONFIGS)
 #todo parts must be same size
 
+$scsiExtDisks = Get-WmiObject Win32_DiskDrive | where InterfaceType -eq SCSI | where Partitions -eq 0
+
 for ($index = 0; $index -lt $lunsSplit.Count; $index++)
 {
     $lunParts = @($lunsSplit[$index]  -split $SEP_DISKS)
@@ -50,7 +52,7 @@ for ($index = 0; $index -lt $lunsSplit.Count; $index++)
         if (-not ($pool))
         {
             Log "Creating Pool";
-            $disks = Get-WmiObject Win32_DiskDrive | where InterfaceType -eq SCSI | where SCSILogicalUnit -In $lunParts | % { Get-PhysicalDisk | where DeviceId -eq $_.Index }
+            $disks = $scsiExtDisks | where InterfaceType -eq SCSI | where SCSILogicalUnit -In $lunParts | % { Get-PhysicalDisk | where DeviceId -eq $_.Index }
             $pool = New-StoragePool -FriendlyName $poolname -StorageSubSystemUniqueId $subsystem.UniqueId -PhysicalDisks $disks -ResiliencySettingNameDefault Simple -ProvisioningTypeDefault Fixed;
         }
         
@@ -122,7 +124,7 @@ for ($index = 0; $index -lt $lunsSplit.Count; $index++)
     {		
         $lun = $lunParts[0];
         Log ("Creating volume for disk " + $lun);
-        $disk = Get-WmiObject Win32_DiskDrive | where InterfaceType -eq SCSI | where SCSILogicalUnit -eq $lun | % { Get-Disk -Number $_.Index } | select -First 1;
+        $disk = $scsiExtDisks | where InterfaceType -eq SCSI | where SCSILogicalUnit -eq $lun | % { Get-Disk -Number $_.Index } | select -First 1;
         Initialize-Disk -PartitionStyle GPT -UniqueId $disk.UniqueId -ErrorAction SilentlyContinue
 
         for ($partIndex = 0; $partIndex -lt $pathsPartSplit.Count; $partIndex++)
