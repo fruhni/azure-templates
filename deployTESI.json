@@ -77,12 +77,12 @@
         "commands": {
             "Windows": "[concat('IF EXIST c:\\sapcd rmdir /q /s c:\\sapcd & net use \\\\tesioqaccount.file.core.windows.net\\oqshare ', parameters('sharePassword'), ' /USER:', parameters('shareUsername'), ' & \\\\tesioqaccount.file.core.windows.net\\oqshare\\oq\\scripts\\install_TESI.bat -Azure ', parameters('adminPassword'), ' ', parameters('adminUsername'))]",
             "WindowsD": "[concat('IF EXIST c:\\sapcd rmdir /q /s c:\\sapcd & net use \\\\tesioqaccount.file.core.windows.net\\oqshare ', parameters('sharePassword'), ' /USER:', parameters('shareUsername'), ' & \\\\tesioqaccount.file.core.windows.net\\oqshare\\oq\\scripts\\install_TESI.bat -Azure -JoinDomain -DomainUser ', parameters('DomainUser'),' -Domain ', parameters('Domain'), ' -DomainPassword ', parameters('DomainPassword'), ' -LocalAdminPassword ', parameters('adminPassword'), ' -AdminAccount ', parameters('adminUsername'))]",
-            "Linux": "[concat('sudo mkdir -p /sapmnt/oqshare;sudo mount -t cifs -o username=', parameters('shareUsername'), ',password=', parameters('sharePassword'), ' //tesioqaccount.file.core.windows.net/oqshare /sapmnt/oqshare;sudo cp -R /sapmnt/oqshare/oq/sl_auto/packages/slha_agent /;sudo /slha_agent/slha_installer.sh')]"
+            "Linux": "[concat('sudo mkdir -p /sapmnt/oqshare;sudo mount -t cifs -o username=', parameters('shareUsername'), ',password=', parameters('sharePassword'), ' //tesioqaccount.file.core.windows.net/oqshare /sapmnt/oqshare; cp -R /sapmnt/oqshare/oq/sl_auto/packages/slha_agent /;/slha_agent/slha_installer.sh')]"
         }
 
     },
     "resources": [
- /*       {
+        {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(parameters('vmName'), '/', parameters('cseExtName'))]",
             "apiVersion": "2015-06-15",
@@ -98,26 +98,7 @@
                 "protectedSettings": {
                     "commandToExecute": "[variables('commands')[parameters('osType')]]"
                 }
-            }, */
-            {
-  "name": "config-app",
-  "type": "Extensions",
-  "location": "[resourceGroup().location]",
-  "apiVersion": "2019-03-01",
-  "properties": {
-    "publisher": "Microsoft.Azure.Extensions",
-    "type": "CustomScript",
-    "typeHandlerVersion": "2.1",
-    "autoUpgradeMinorVersion": true,
-    "settings": {
-      "skipDos2Unix":false,
-      "timestamp":123456789          
-    },
-    "protectedSettings": {
-       "commandToExecute": "[variables('commands')[parameters('osType')]]"
-    }
-  }
-}
+            }
         }
     ]
 }
