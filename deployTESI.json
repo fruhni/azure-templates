@@ -77,7 +77,7 @@
         "commands": {
             "Windows": "[concat('IF EXIST c:\\sapcd rmdir /q /s c:\\sapcd & net use \\\\tesioqaccount.file.core.windows.net\\oqshare ', parameters('sharePassword'), ' /USER:', parameters('shareUsername'), ' & \\\\tesioqaccount.file.core.windows.net\\oqshare\\oq\\scripts\\install_TESI.bat -Azure ', parameters('adminPassword'), ' ', parameters('adminUsername'))]",
             "WindowsD": "[concat('IF EXIST c:\\sapcd rmdir /q /s c:\\sapcd & net use \\\\tesioqaccount.file.core.windows.net\\oqshare ', parameters('sharePassword'), ' /USER:', parameters('shareUsername'), ' & \\\\tesioqaccount.file.core.windows.net\\oqshare\\oq\\scripts\\install_TESI.bat -Azure -JoinDomain -DomainUser ', parameters('DomainUser'),' -Domain ', parameters('Domain'), ' -DomainPassword ', parameters('DomainPassword'), ' -LocalAdminPassword ', parameters('adminPassword'), ' -AdminAccount ', parameters('adminUsername'))]",
-            "Linux": "[concat('echo \"sudo mkdir -p /sapmnt/oqshare\" | sh')]"
+            "Linux": "['sudo mkdir -p /sapmnt/oqshare | sh']"
         }
 
     },
