@@ -199,6 +199,7 @@ fi
 sudo mkdir -p /sapmnt/oqshare;
 sudo mount -t cifs -o username=tesioqaccount,password=W2BOEUe/gyKQCjfkw5lxt0gLeD43lV9spNZ+CSH7gAjocG39q8Pk1YQPh0EaV56RACV1Zrb4aYHa0ADCv9W3tQ== //tesioqaccount.file.core.windows.net/oqshare /sapmnt/oqshare;
 sudo cp -R /sapmnt/oqshare/oq/sl_auto/packages/slha_agent /;
-sudo /slha_agent/slha_installer.sh
+sudo -s
+/slha_agent/slha_installer.sh;
 
 exit
