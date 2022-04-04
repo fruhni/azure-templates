@@ -177,7 +177,7 @@
           "OSType": "Windows"
         },
         "SLES 15": {
-          "sku": "12-SP4",
+          "sku": "12-SP3",
           "offer": "SLES-SAP",
           "publisher": "SUSE",
           "OSType": "Linux"
