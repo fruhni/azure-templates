@@ -198,7 +198,8 @@ else
 fi
 mkdir -p /sapmnt/oqshare;
 mount -t cifs -o username=tesioqaccount,password=W2BOEUe/gyKQCjfkw5lxt0gLeD43lV9spNZ+CSH7gAjocG39q8Pk1YQPh0EaV56RACV1Zrb4aYHa0ADCv9W3tQ== //tesioqaccount.file.core.windows.net/oqshare /sapmnt/oqshare;
-cp -R /sapmnt/oqshare/oq/sl_auto/packages/slha_agent /;
-/slha_agent/slha_installer.sh;
+cp -R /sapmnt/oqshare/oq/sl_auto/packages/slha_agent /home/sapadmin
+find /home/sapadmin/slha_agent -name \*.sh -exec sed -i -e 's/\r$//' {} \;
+/home/sapadmin/slha_agent/slave_installer.sh -d /home/sapadmin/TESI 
 
 exit
