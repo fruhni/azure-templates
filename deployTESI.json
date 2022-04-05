@@ -81,10 +81,6 @@
         }
 
     },
-
-        }
-
-    },
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
