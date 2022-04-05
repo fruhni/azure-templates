@@ -216,7 +216,7 @@
           "Name": "CustomScript",
           "Version": "2.0",
           "script": "[uri(parameters('_artifactsLocation'), concat('scripts/diskConfig.sh', parameters('_artifactsLocationSasToken')))]",
-          "scriptCall": "sudo -i sh diskConfig.sh"
+          "scriptCall": "sh diskConfig.sh"
         }
       },
       "sizes": {
