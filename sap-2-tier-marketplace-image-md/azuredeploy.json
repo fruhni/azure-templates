@@ -357,49 +357,73 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 3,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 4,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 5,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 6,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 7,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
