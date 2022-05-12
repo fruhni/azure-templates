@@ -438,37 +438,55 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 3,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 4,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 5,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -483,13 +501,19 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -507,37 +531,55 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 3,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 4,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 64
+                "diskSizeGB": 64,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 5,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -552,55 +594,82 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 3,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 4,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 5,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 6,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 7,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 8,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -615,13 +684,19 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -639,63 +714,96 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 3,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                },
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 4,
                 "caching": "ReadOnly",
                 "writeAcceleratorEnabled": "true",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 5,
                 "caching": "ReadOnly",
                 "writeAcceleratorEnabled": "true",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 6,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 7,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 64
+                "diskSizeGB": 64,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 8,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 9,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -710,43 +818,64 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 3,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 4,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 5,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 6,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -761,13 +890,19 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -785,57 +920,84 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 3,
                 "caching": "ReadOnly",
                 "writeAcceleratorEnabled": "true",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 4,
                 "caching": "ReadOnly",
                 "writeAcceleratorEnabled": "true",
                 "createOption": "Empty",
-                "diskSizeGB": 512
+                "diskSizeGB": 512,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 5,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 6,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 64
+                "diskSizeGB": 64,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 7,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 2048
+                "diskSizeGB": 2048,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 8,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 2048
+                "diskSizeGB": 2048,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -850,55 +1012,82 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 2,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 3,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 4,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 5,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 6,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 7,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 1024
+                "diskSizeGB": 1024,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 8,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
@@ -913,13 +1102,19 @@
                 "lun": 0,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               },
               {
                 "lun": 1,
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128
+                "diskSizeGB": 128,
+                "managedDisk": {
+                    "storageAccountType": "StandardSSD_LRS"
+                }
               }
             ],
             "scriptArguments": {
