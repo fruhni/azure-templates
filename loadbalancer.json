@@ -9,6 +9,10 @@
             "type": "string",
             "defaultValue": "62000"
         },
+        "resourceGroup": {
+            "type": "string",
+            "defaultValue": "rg_IAO"
+        },
         "name": {
             "type": "string",
             "defaultValue": "IAO_LB"
@@ -35,7 +39,7 @@
             "properties": {
                 "frontendIPConfigurations": [
                     {
-                        "name": "[concat([parameters('name')], '_IPconf')]",
+                        "name": "[concat(parameters('name'), '_IPconf')]",
                         "properties": {
                             "privateIPAddress": "[parameters('IPAddress)]",
                             "privateIPAddressVersion": "IPv4",
@@ -48,12 +52,12 @@
                 ],
                 "backendAddressPools": [
                     {
-                        "name": "[concat([parameters('name')], '_BackendPool')]"
+                        "name": "[concat(parameters('name'), '_BackendPool')]"
                     }
                 ],
                 "probes": [
                     {
-                        "name": "[concat([parameters('name')], '_Probe')]",
+                        "name": "[concat(parameters('name'), '_Probe')]",
                         "properties": {
                             "protocol": "Tcp",
                             "port": "[parameters('ProbePort')]",
@@ -65,10 +69,10 @@
                 ],
                 "loadBalancingRules": [
                     {
-                        "name": "[concat([parameters('name')], '_BalanceRules')]",
+                        "name": "[concat(parameters('name'), '_BalanceRules')]",
                         "properties": {
                             "frontendIPConfiguration": {
-                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',[parameters('resourceGroup')], '/providers/Microsoft.Network/loadBalancers/',[parameters('name')], '/frontendIPConfigurations/',[parameters('name')], '_IPconf')]"
+                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Network/loadBalancers/',parameters('name'), '/frontendIPConfigurations/',parameters('name'), '_IPconf')]"
                             },
                             "frontendPort": 0,
                             "backendPort": 0,
@@ -77,13 +81,13 @@
                             "protocol": "All",
                             "loadDistribution": "Default",
                             "probe": {
-                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',[parameters('resourceGroup')], '/providers/Microsoft.Network/loadBalancers/',[parameters('name')], '/probes/',[parameters('name')], '_Probe')]"
+                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Network/loadBalancers/',parameters('name'), '/probes/',parameters('name'), '_Probe')]"
                             },
                             "disableOutboundSnat": true,
                             "enableTcpReset": false,
                             "backendAddressPools": [
                                 {
-                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',[parameters('resourceGroup')], '/providers/Microsoft.Network/loadBalancers/',[parameters('name')], '/backendAddressPools/',[parameters('name')], '_BackendPool')]"
+                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Network/loadBalancers/',parameters('name'), '/backendAddressPools/',parameters('name'), '_BackendPool')]"
                                 }
                             ]
                         }
@@ -103,7 +107,7 @@
             "name": "NicUpdate-85c8f201-9e92-4b62-9768-d6ccf0b007b0-20221013141823",
             "resourceGroup": "[parameters('resourceGroup')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/loadBalancers/',[parameters('name')])]"
+                "[concat('Microsoft.Network/loadBalancers/',parameters('name'))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -128,7 +132,7 @@
                                 "ipConfigurations": [
                                     {
                                         "name": "ipconfig1",
-                                        "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',[parameters('resourceGroup')], '/providers/Microsoft.Network/networkInterfaces/ao1-nic/ipConfigurations/ipconfig1')]",
+                                        "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Network/networkInterfaces/ao1-nic/ipConfigurations/ipconfig1')]",
                                         "etag": "W/\"ea96b5b1-1a1b-4a06-b389-27bcf78a4387\"",
                                         "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                                         "properties": {
@@ -142,7 +146,7 @@
                                             "privateIPAddressVersion": "IPv4",
                                             "loadBalancerBackendAddressPools": [
                                                 {
-                                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourcegroups/',[parameters('resourceGroup')], '/providers/Microsoft.Network/loadBalancers/',[parameters('name')], '/backendAddressPools/',[parameters('name')], '_BackendPool')]"
+                                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourcegroups/',parameters('resourceGroup'), '/providers/Microsoft.Network/loadBalancers/',parameters('name'), '/backendAddressPools/',parameters('name'), '_BackendPool')]"
                                                 }
                                             ],
                                             "loadBalancerInboundNatRules": []
@@ -166,7 +170,7 @@
                                 "enableIPForwarding": false,
                                 "primary": true,
                                 "virtualMachine": {
-                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',[parameters('resourceGroup')], '/providers/Microsoft.Compute/virtualMachines/,[parameters('node1')])]"
+                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Compute/virtualMachines/,parameters('node1'))]"
                                 },
                                 "hostedWorkloads": [],
                                 "tapConfigurations": [],
@@ -210,7 +214,7 @@
                                 "ipConfigurations": [
                                     {
                                         "name": "ipconfig1",
-                                        "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',[parameters('resourceGroup')], '/providers/Microsoft.Network/networkInterfaces/ao2-nic/ipConfigurations/ipconfig1')]",
+                                        "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Network/networkInterfaces/ao2-nic/ipConfigurations/ipconfig1')]",
                                         "etag": "W/\"15165d4f-0dbc-4aae-bd2e-38e64fde610d\"",
                                         "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                                         "properties": {
@@ -224,7 +228,7 @@
                                             "privateIPAddressVersion": "IPv4",
                                             "loadBalancerBackendAddressPools": [
                                                 {
-                                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourcegroups/',[parameters('resourceGroup')], '/providers/Microsoft.Network/loadBalancers/',[parameters('name')], '/backendAddressPools/',[parameters('name')], '_BackendPool')]"
+                                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourcegroups/',parameters('resourceGroup'), '/providers/Microsoft.Network/loadBalancers/',parameters('name'), '/backendAddressPools/',parameters('name'), '_BackendPool')]"
                                                 }
                                             ],
                                             "loadBalancerInboundNatRules": []
@@ -248,7 +252,7 @@
                                 "enableIPForwarding": false,
                                 "primary": true,
                                 "virtualMachine": {
-                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',[parameters('resourceGroup')], '/providers/Microsoft.Compute/virtualMachines/',[parameters('node2')])]"
+                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Compute/virtualMachines/',parameters('node2'))]"
                                 },
                                 "hostedWorkloads": [],
                                 "tapConfigurations": [],
