@@ -41,7 +41,7 @@
                     {
                         "name": "[concat(parameters('name'), '_IPconf')]",
                         "properties": {
-                            "privateIPAddress": "[parameters('IPAddress)]",
+                            "privateIPAddress": "[parameters('IPAddress')]",
                             "privateIPAddressVersion": "IPv4",
                             "privateIPAllocationMethod": "Static",
                             "subnet": {
