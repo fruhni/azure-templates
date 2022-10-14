@@ -189,7 +189,7 @@
             "name": "NicUpdate-eddf6ee6-a276-43be-8656-077e80529514-20221013141823",
             "resourceGroup": "[parameters('resourceGroup')]",
             "dependsOn": [
-                "Microsoft.Network/loadBalancers/',[parameters('name')]"
+                "[concat('Microsoft.Network/loadBalancers/',parameters('name'))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
