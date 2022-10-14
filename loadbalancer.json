@@ -170,7 +170,7 @@
                                 "enableIPForwarding": false,
                                 "primary": true,
                                 "virtualMachine": {
-                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Compute/virtualMachines/,parameters('node1'))]"
+                                    "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'), '/providers/Microsoft.Compute/virtualMachines/',parameters('node1'))]"
                                 },
                                 "hostedWorkloads": [],
                                 "tapConfigurations": [],
