@@ -64,8 +64,8 @@
                             },
                             "frontendPort": 0,
                             "backendPort": 0,
-                            "enableFloatingIP": false,
-                            "idleTimeoutInMinutes": 4,
+                            "enableFloatingIP": true,
+                            "idleTimeoutInMinutes": 30,
                             "protocol": "All",
                             "loadDistribution": "Default",
                             "probe": {
