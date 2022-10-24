@@ -1,0 +1,179 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loadBalancers_IAO_LB_name": {
+            "defaultValue": "IAO_LB",
+            "type": "String"
+        },
+        "virtualNetworks_vnetgw_beachhead_TIMSFT_externalid": {
+            "defaultValue": "/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/rg-beachhead-TIMSFT/providers/Microsoft.Network/virtualNetworks/vnetgw-beachhead-TIMSFT",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2022-01-01",
+            "name": "[parameters('loadBalancers_IAO_LB_name')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_IAO_LB_name'), concat(parameters('loadBalancers_IAO_LB_name'), '_BP'))]"
+            ],
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "[concat(parameters('loadBalancers_IAO_LB_name'), '_IPconf')]",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/frontendIPConfigurations/', parameters('loadBalancers_IAO_LB_name'), '_IPconf'))]",
+                        "properties": {
+                            "privateIPAddress": "10.239.41.160",
+                            "privateIPAllocationMethod": "Static",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_vnetgw_beachhead_TIMSFT_externalid'), '/subnets/NT5OQ_Subnet')]"
+                            },
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    },
+                    {
+                        "name": "[concat(parameters('loadBalancers_IAO_LB_name'), '_AO_IPconf')]",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/frontendIPConfigurations/', parameters('loadBalancers_IAO_LB_name'), '_AO_IPconf'))]",
+                        "properties": {
+                            "privateIPAddress": "10.239.41.145",
+                            "privateIPAllocationMethod": "Static",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_vnetgw_beachhead_TIMSFT_externalid'), '/subnets/NT5OQ_Subnet')]"
+                            },
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "[concat(parameters('loadBalancers_IAO_LB_name'), '_BP')]",
+                        "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_IAO_LB_name'), concat(parameters('loadBalancers_IAO_LB_name'), '_BP'))]",
+                        "properties": {
+                            "loadBalancerBackendAddresses": [
+                                {
+                                    "name": "rg_IAO_ao1-nicipconfig1",
+                                    "properties": {}
+                                },
+                                {
+                                    "name": "rg_IAO_ao2-nicipconfig1",
+                                    "properties": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "loadBalancingRules": [
+                    {
+                        "name": "[concat(parameters('loadBalancers_IAO_LB_name'), '_BR')]",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/loadBalancingRules/', parameters('loadBalancers_IAO_LB_name'), '_BR'))]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/frontendIPConfigurations/', parameters('loadBalancers_IAO_LB_name'), '_IPconf'))]"
+                            },
+                            "frontendPort": 0,
+                            "backendPort": 0,
+                            "enableFloatingIP": true,
+                            "idleTimeoutInMinutes": 30,
+                            "protocol": "All",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_IAO_LB_name'), concat(parameters('loadBalancers_IAO_LB_name'), '_BP'))]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_IAO_LB_name'), concat(parameters('loadBalancers_IAO_LB_name'), '_BP'))]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/probes/', parameters('loadBalancers_IAO_LB_name'), '_HP'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "[concat(parameters('loadBalancers_IAO_LB_name'), '_AO_BR')]",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/loadBalancingRules/', parameters('loadBalancers_IAO_LB_name'), '_AO_BR'))]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/frontendIPConfigurations/', parameters('loadBalancers_IAO_LB_name'), '_AO_IPconf'))]"
+                            },
+                            "frontendPort": 0,
+                            "backendPort": 0,
+                            "enableFloatingIP": true,
+                            "idleTimeoutInMinutes": 30,
+                            "protocol": "All",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_IAO_LB_name'), concat(parameters('loadBalancers_IAO_LB_name'), '_BP'))]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_IAO_LB_name'), concat(parameters('loadBalancers_IAO_LB_name'), '_BP'))]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/probes/', parameters('loadBalancers_IAO_LB_name'), '_AO_HP'))]"
+                            }
+                        }
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "[concat(parameters('loadBalancers_IAO_LB_name'), '_HP')]",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/probes/', parameters('loadBalancers_IAO_LB_name'), '_HP'))]",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 62000,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 1
+                        }
+                    },
+                    {
+                        "name": "[concat(parameters('loadBalancers_IAO_LB_name'), '_AO_HP')]",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name')), concat('/probes/', parameters('loadBalancers_IAO_LB_name'), '_AO_HP'))]",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 62500,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 1
+                        }
+                    }
+                ],
+                "inboundNatRules": [],
+                "outboundRules": [],
+                "inboundNatPools": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers/backendAddressPools",
+            "apiVersion": "2022-01-01",
+            "name": "[concat(parameters('loadBalancers_IAO_LB_name'), '/', parameters('loadBalancers_IAO_LB_name'), '_BP')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_IAO_LB_name'))]"
+            ],
+            "properties": {
+                "loadBalancerBackendAddresses": [
+                    {
+                        "name": "rg_IAO_ao1-nicipconfig1",
+                        "properties": {}
+                    },
+                    {
+                        "name": "rg_IAO_ao2-nicipconfig1",
+                        "properties": {}
+                    }
+                ]
+            }
+        }
+    ]
+}
