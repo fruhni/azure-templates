@@ -179,7 +179,21 @@
                 "template": {
                     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
-                    "parameters": {},
+                    "parameters": {
+                        "resourceGroup": {
+                            "type": "string"
+                        },
+                        "nic1": {
+                            "type": "string"
+                        },
+                        "nic2": {
+                            "type": "string"
+                        },
+                        "location": {
+                            "type": "string",
+                            "defaultValue": "westeurope"
+                        }
+                    },
                     "variables": {},
                     "resources": [
                         {
@@ -247,7 +261,22 @@
                 "template": {
                     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
-                    "parameters": {},
+                    "parameters": {
+                        
+                        "resourceGroup": {
+                            "type": "string"
+                        },
+                        "nic1": {
+                            "type": "string"
+                        },
+                        "nic2": {
+                            "type": "string"
+                        },
+                        "location": {
+                            "type": "string",
+                            "defaultValue": "westeurope"
+                        }
+                    },
                     "variables": {},
                     "resources": [
                         {
@@ -289,9 +318,6 @@
                                 "vnetEncryptionSupported": false,
                                 "enableIPForwarding": false,
                                 "primary": true,
-                                "virtualMachine": {
-                                    "id": "/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/rg_IAO/providers/Microsoft.Compute/virtualMachines/WAZQIAO-2"
-                                },
                                 "hostedWorkloads": [],
                                 "tapConfigurations": [],
                                 "nicType": "Standard"
