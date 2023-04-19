@@ -109,7 +109,7 @@
                         "name": "[concat(parameters('name'), '_LB_rule')]",
                         "properties": {
                             "frontendIPConfiguration": {
-                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/frontendIPConfigurations/SAP)]"
+                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/frontendIPConfigurations/SAP')]"
                             },
                             "frontendPort": 0,
                             "backendPort": 0,
@@ -133,7 +133,7 @@
                         "name": "[concat(parameters('name'), '_ADD_rule')]",
                         "properties": {
                             "frontendIPConfiguration": {
-                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/frontendIPConfigurations/ADD)]"
+                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/frontendIPConfigurations/ADD')]"
                             },
                             "frontendPort": 0,
                             "backendPort": 0,
