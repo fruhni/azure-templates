@@ -171,29 +171,12 @@
                 "[concat('Microsoft.Network/loadBalancers/',parameters('name'))]"
             ],
             "properties": {
-                "expressionEvaluationOptions": {
-                    "scope": "inner"
-                },
                 "mode": "Incremental",
                 "parameters": {},
                 "template": {
                     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        "resourceGroup": {
-                            "type": "string"
-                        },
-                        "nic1": {
-                            "type": "string"
-                        },
-                        "nic2": {
-                            "type": "string"
-                        },
-                        "location": {
-                            "type": "string",
-                            "defaultValue": "westeurope"
-                        }
-                    },
+                    "parameters": {},
                     "variables": {},
                     "resources": [
                         {
@@ -253,30 +236,12 @@
                 "[concat('Microsoft.Network/loadBalancers/',parameters('name'))]"
             ],
             "properties": {
-                "expressionEvaluationOptions": {
-                    "scope": "inner"
-                },
                 "mode": "Incremental",
                 "parameters": {},
                 "template": {
                     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        
-                        "resourceGroup": {
-                            "type": "string"
-                        },
-                        "nic1": {
-                            "type": "string"
-                        },
-                        "nic2": {
-                            "type": "string"
-                        },
-                        "location": {
-                            "type": "string",
-                            "defaultValue": "westeurope"
-                        }
-                    },
+                    "parameters": {},
                     "variables": {},
                     "resources": [
                         {
