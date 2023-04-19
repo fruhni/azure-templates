@@ -192,6 +192,9 @@
                                         "etag": "W/\"2e54ee27-16a8-4391-9a48-5884fc314f69\"",
                                         "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                                         "properties": {
+                                            "subnet": {
+                                                "id": "[parameters('subnetId')]"
+                                            },
                                             "loadBalancerBackendAddressPools": [
                                                 {
                                                     "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/backendAddressPools/',parameters('name'), '_pool')]"
@@ -251,7 +254,6 @@
                             "location": "[parameters('location')]",
                             "properties": {
                                 "provisioningState": "Succeeded",
-                                "resourceGuid": "5b799d73-37a8-4683-8be5-599f0bbcc190",
                                 "ipConfigurations": [
                                     {
                                         "name": "ipconfig1",
@@ -259,6 +261,9 @@
                                         "etag": "W/\"816aaa97-dd9f-4605-8dbb-fd9c4a85fcfe\"",
                                         "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                                         "properties": {
+                                            "subnet": {
+                                                "id": "[parameters('subnetId')]"
+                                            },
                                             "loadBalancerBackendAddressPools": [
                                                 {
                                                     "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/backendAddressPools/',parameters('name'), '_pool')]"
