@@ -20,14 +20,19 @@
         "subnetId": {
             "type": "string"
         },
+        "clusterIP": {
+            "type": "string"
+        },
         "addIP": {
             "type": "string"
         },
         "probePort": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "62000"
         },
         "addprobePort": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "62500"
         },
         "resourceGroup": {
             "type": "string"
