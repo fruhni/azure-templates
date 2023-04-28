@@ -84,7 +84,7 @@
                 ],
                 "probes": [
                     {
-                        "name": "[concat(parameters('name'), '_LB_SAP_Probe')]",
+                        "name": "[concat(parameters('name'), '_SAP_Probe')]",
                         "properties": {
                             "protocol": "Tcp",
                             "port": "[parameters('probePort')]",
@@ -94,7 +94,7 @@
                         }
                     },
                     {
-                        "name": "[concat(parameters('name'), '_LB_ADD_Probe')]",
+                        "name": "[concat(parameters('name'), '_ADD_Probe')]",
                         "properties": {
                             "protocol": "Tcp",
                             "port": "[parameters('addprobePort')]",
@@ -106,7 +106,7 @@
                 ],
                 "loadBalancingRules": [
                     {
-                        "name": "[concat(parameters('name'), '_LB_rule')]",
+                        "name": "[concat(parameters('name'), '_rule')]",
                         "properties": {
                             "frontendIPConfiguration": {
                                 "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/frontendIPConfigurations/SAP')]"
@@ -118,7 +118,7 @@
                             "protocol": "All",
                             "loadDistribution": "Default",
                             "probe": {
-                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/probes/',parameters('name'), '_LB_SAP_Probe')]"
+                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/probes/',parameters('name'), '_SAP_Probe')]"
                             },
                             "disableOutboundSnat": true,
                             "enableTcpReset": false,
@@ -142,7 +142,7 @@
                             "protocol": "All",
                             "loadDistribution": "Default",
                             "probe": {
-                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/probes/',parameters('name'), '_LB_ADD_Probe')]"
+                                "id": "[concat('/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/',parameters('resourceGroup'),'/providers/Microsoft.Network/loadBalancers/',parameters('name'),'/probes/',parameters('name'), '_ADD_Probe')]"
                             },
                             "disableOutboundSnat": true,
                             "enableTcpReset": false,
