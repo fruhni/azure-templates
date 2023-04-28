@@ -1116,6 +1116,7 @@
           }
         }
       },
+      "vnetName": "[concat(parameters('vmName'), '-vnet')]",
       "nicName": "[concat(parameters('vmName'), '-nic')]",
       "subnetName": "Subnet",
       "linuxConfiguration": {
