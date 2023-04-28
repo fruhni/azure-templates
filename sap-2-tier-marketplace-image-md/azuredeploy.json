@@ -2,15 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "sapSystemId": {
-        "type": "string",
-        "maxLength": 3,
-        "minLength": 3,
-        "defaultValue": "DEQ",
-        "metadata": {
-          "description": "SAP System ID."
-        }
-      },
       "osType": {
         "type": "string",
         "allowedValues": [
@@ -1125,9 +1116,7 @@
           }
         }
       },
-      "sidlower": "[toLower(parameters('sapSystemId'))]",
-      "vnetName": "[concat(variables('sidlower'), '-vnet')]",
-      "nicName": "[concat(variables('sidlower'), '-nic')]",
+      "nicName": "[concat(parameters('vmName'), '-nic')]",
       "subnetName": "Subnet",
       "linuxConfiguration": {
         "disablePasswordAuthentication": true,
