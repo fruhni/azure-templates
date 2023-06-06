@@ -1305,7 +1305,7 @@
                   "CredentialName": ""
               },
               "StorageConfigurationSettings": {
-                  "DiskConfigurationType": "NEW",
+                  "DiskConfigurationType": "EXTEND",
                   "StorageWorkloadType": "OLTP",
                   "SQLDataSettings": {
                       "LUNs": 0,
