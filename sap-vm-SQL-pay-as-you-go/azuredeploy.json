@@ -1242,6 +1242,12 @@
           "hardwareProfile": {
             "vmSize": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].vmSize]"
           },
+          "osProfile": {
+            "computerName": "[parameters('vmName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPasswordOrKey')]",
+            "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
+          },
                 "storageProfile": {
                     "imageReference": {
                         "publisher": "microsoftsqlserver",
@@ -1249,19 +1255,6 @@
                         "sku": "enterprise-gen2",
                         "version": "latest"
                     },
-          "osProfile": {
-            "computerName": "[parameters('vmName')]",
-            "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPasswordOrKey')]",
-            "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
-          },
-          "storageProfile": {
-            "imageReference": {
-              "publisher": "[variables('images')[parameters('osType')].publisher]",
-              "offer": "[variables('images')[parameters('osType')].offer]",
-              "sku": "[variables('images')[parameters('osType')].sku]",
-              "version": "latest"
-            },
             "osDisk": {
               "name": "[concat(parameters('vmName'), '-osdisk')]",
               "caching": "ReadWrite",
