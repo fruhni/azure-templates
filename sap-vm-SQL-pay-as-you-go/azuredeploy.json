@@ -1295,68 +1295,25 @@
           }
         }
       },
-      {
-          "name": "[parameters('vmName')]",
-          "type": "Microsoft.SqlVirtualMachine/SqlVirtualMachines",
-          "apiVersion": "2022-07-01-preview",
-          "location": "[parameters('location')]",
-          "properties": {
-              "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]",
-              "sqlManagement": "Full",
-              "SqlServerLicenseType": "AHUB",
-              "LeastPrivilegeMode": "Enabled",
-              "AutoPatchingSettings": {
-                  "Enable": true
-              },
-              "KeyVaultCredentialSettings": {
-                  "Enable": false,
-                  "CredentialName": ""
-              },
-              "StorageConfigurationSettings": {
-                  "DiskConfigurationType": "EXTEND",
-                  "StorageWorkloadType": "OLTP",
-                  "SQLDataSettings": {
-                      "LUNs": 0,
-                      "DefaultFilePath": "C:\\sql\\data"
-                  },
-                  "SQLLogSettings": {
-                      "LUNs": 0,
-                      "DefaultFilePath": "C:\\sql\\log"
-                  },
-                  "SQLTempDbSettings": {
-                      "DefaultFilePath": "D:\\tempDb",
-                      "DataFileCount": 8,
-                      "DataFileSize": 8,
-                      "DataGrowth": 64,
-                      "LogFileSize": 8,
-                      "LogGrowth": 64
-                  },
-                  "SQLSystemDbOnDataDisk": "false"
-              },
-              "ServerConfigurationsManagementSettings": {
-                  "SQLConnectivityUpdateSettings": {
-                      "ConnectivityType": "Private",
-                      "Port": "1433",
-                      "SQLAuthUpdateUserName": "",
-                      "SQLAuthUpdatePassword": ""
-                  },
-                  "AdditionalFeaturesServerConfigurations": {
-                      "IsRServicesEnabled": "false"
-                  },
-                  "SQLInstanceSettings": {
-                      "maxDop": "0",
-                      "isOptimizeForAdHocWorkloadsEnabled": "false",
-                      "collation": "SQL_Latin1_General_CP850_BIN2",
-                      "minServerMemoryMB": 0,
-                      "maxServerMemoryMB": 64000,
-                      "isLPIMEnabled": "false",
-                      "isIFIEnabled": "false"
-                  }
-              }
-          },
-          "dependsOn": [
-              "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
-          ]
-      }
+        {
+            "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
+            "apiVersion": "2023-01-01-preview",
+            "name": "[parameters('vmName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+            ],
+            "properties": {
+                "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]",
+                "sqlImageOffer": "SQL2022-WS2022",
+                "sqlServerLicenseType": "AHUB",
+                "sqlManagement": "Full",
+                "leastPrivilegeMode": "Enabled",
+                "sqlImageSku": "Enterprise",
+                "enableAutomaticUpgrade": true
+            }
+        }
+    ]
+}
     ]
   }
