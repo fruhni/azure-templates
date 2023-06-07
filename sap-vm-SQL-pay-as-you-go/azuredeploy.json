@@ -1242,6 +1242,13 @@
           "hardwareProfile": {
             "vmSize": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].vmSize]"
           },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "microsoftsqlserver",
+                        "offer": "sql2022-ws2022",
+                        "sku": "enterprise-gen2",
+                        "version": "latest"
+                    },
           "osProfile": {
             "computerName": "[parameters('vmName')]",
             "adminUsername": "[parameters('adminUsername')]",
