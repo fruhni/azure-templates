@@ -1307,12 +1307,6 @@
               "StorageConfigurationSettings": {
                   "DiskConfigurationType": "EXTEND",
                   "StorageWorkloadType": "OLTP",
-                  "SQLDataSettings": {
-                      "DefaultFilePath": "C:\\sql\\data"
-                  },
-                  "SQLLogSettings": {
-                      "DefaultFilePath": "C:\\sql\\log"
-                  },
                   "SQLTempDbSettings": {
                       "DefaultFilePath": "D:\\tempDb",
                       "DataFileCount": 8,
