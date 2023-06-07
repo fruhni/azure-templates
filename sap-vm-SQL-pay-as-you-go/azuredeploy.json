@@ -1298,7 +1298,7 @@
               "SqlServerLicenseType": "AHUB",
               "LeastPrivilegeMode": "Enabled",
               "AutoPatchingSettings": {
-                  "Enable": true
+                  "Enable": false
               },
               "KeyVaultCredentialSettings": {
                   "Enable": false,
