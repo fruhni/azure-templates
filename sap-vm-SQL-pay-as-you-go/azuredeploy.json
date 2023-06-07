@@ -1248,8 +1248,8 @@
             "adminPassword": "[parameters('adminPasswordOrKey')]",
             "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
           },
-                "storageProfile": {
-                    "imageReference": {
+          "storageProfile": {
+             "imageReference": {
                         "publisher": "microsoftsqlserver",
                         "offer": "sql2022-ws2022",
                         "sku": "enterprise-gen2",
