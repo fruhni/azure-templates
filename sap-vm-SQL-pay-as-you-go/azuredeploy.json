@@ -1298,7 +1298,7 @@
               "SqlServerLicenseType": "AHUB",
               "LeastPrivilegeMode": "Enabled",
               "AutoPatchingSettings": {
-                  "Enable": false
+                  "Enable": true
               },
               "KeyVaultCredentialSettings": {
                   "Enable": false,
@@ -1307,7 +1307,16 @@
               "StorageConfigurationSettings": {
                   "DiskConfigurationType": "EXTEND",
                   "StorageWorkloadType": "OLTP",
+                  "SQLDataSettings": {
+                      "LUNs": 0,
+                      "DefaultFilePath": "C:\\sql\\data"
+                  },
+                  "SQLLogSettings": {
+                      "LUNs": 0,
+                      "DefaultFilePath": "C:\\sql\\log"
+                  },
                   "SQLTempDbSettings": {
+                      "DefaultFilePath": "D:\\tempDb",
                       "DataFileCount": 8,
                       "DataFileSize": 8,
                       "DataGrowth": 64,
