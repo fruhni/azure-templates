@@ -1308,7 +1308,6 @@
                   "DiskConfigurationType": "EXTEND",
                   "StorageWorkloadType": "OLTP",
                   "SQLTempDbSettings": {
-                      "DefaultFilePath": "D:\\tempDb",
                       "DataFileCount": 8,
                       "DataFileSize": 8,
                       "DataGrowth": 64,
