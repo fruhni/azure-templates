@@ -1304,7 +1304,7 @@
       },
         {
             "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
-            "condition": "[equals(variables('images')[parameters('osType')].publisher],'microsoftsqlserver')]",
+            "condition": "[equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver')]",
             "apiVersion": "2023-01-01-preview",
             "name": "[parameters('vmName')]",
             "location": "[parameters('location')]",
