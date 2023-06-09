@@ -179,6 +179,12 @@
           "publisher": "MicrosoftWindowsServer",
           "OSType": "Windows"
         },
+        "Windows Server 2022 SQL": {
+          "sku": "enterprise-gen2",
+          "offer": "sql2022-ws2022",
+          "publisher": "microsoftsqlserver",
+          "OSType": "Windows"
+        },
         "SLES 12": {
           "sku": "12-SP4",
           "offer": "SLES-SAP",
@@ -1249,12 +1255,12 @@
             "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
           },
           "storageProfile": {
-             "imageReference": {
-                        "publisher": "microsoftsqlserver",
-                        "offer": "sql2022-ws2022",
-                        "sku": "enterprise-gen2",
-                        "version": "latest"
-                    },
+            "imageReference": {
+              "publisher": "[variables('images')[parameters('osType')].publisher]",
+              "offer": "[variables('images')[parameters('osType')].offer]",
+              "sku": "[variables('images')[parameters('osType')].sku]",
+              "version": "latest"
+            },
             "osDisk": {
               "name": "[concat(parameters('vmName'), '-osdisk')]",
               "caching": "ReadWrite",
@@ -1297,6 +1303,7 @@
       },
         {
             "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
+            "condition": "[equals(variables('images')[parameters('osType')].publisher],'microsoftsqlserver')]",
             "apiVersion": "2023-01-01-preview",
             "name": "[parameters('vmName')]",
             "location": "[parameters('location')]",
@@ -1305,7 +1312,7 @@
             ],
             "properties": {
                 "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]",
-                "sqlImageOffer": "SQL2022-WS2022",
+                "sqlImageOffer": "[variables('images')[parameters('osType')].offer]",
                 "sqlServerLicenseType": "AHUB",
                 "sqlManagement": "Full",
                 "leastPrivilegeMode": "Enabled",
