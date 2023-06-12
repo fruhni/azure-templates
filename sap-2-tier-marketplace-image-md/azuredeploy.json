@@ -126,6 +126,14 @@
           "description": "Location for all resources."
         }
       },
+      "collation": {
+        "type": "string",
+        "defaultValue": "SQL_Latin1_General_CP850_BIN2"
+      },
+      "maxdop": {
+        "type": "int",
+        "defaultValue": 0
+      },
       "_artifactsLocation": {
         "type": "string",
         "metadata": {
@@ -1318,7 +1326,11 @@
                 "sqlManagement": "Full",
                 "leastPrivilegeMode": "Enabled",
                 "sqlImageSku": "Enterprise",
-                "enableAutomaticUpgrade": true
+                "enableAutomaticUpgrade": true,
+                "ServerConfigurationsManagementSettings": {
+                    "collation": "[parameters('collation')]",
+                    "maxDop": "[parameters('maxdop')]"
+                }
             }
         }
     ]
