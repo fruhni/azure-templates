@@ -1328,8 +1328,10 @@
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": true,
                 "ServerConfigurationsManagementSettings": {
+                  "SQLInstanceSettings": {
                     "collation": "[parameters('collation')]",
                     "maxDop": "[parameters('maxdop')]"
+                  }
                 }
             }
         }
