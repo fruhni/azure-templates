@@ -1327,6 +1327,12 @@
                 "leastPrivilegeMode": "Enabled",
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": true,
+                "storageConfigurationSettings": {
+                  "sqlTempDbSettings": {
+                    "defaultFilePath": "D:\\TEMPDB"
+                  },
+                  "storageWorkloadType": "string"
+                },
                 "ServerConfigurationsManagementSettings": {
                   "SQLInstanceSettings": {
                     "collation": "[parameters('collation')]",
