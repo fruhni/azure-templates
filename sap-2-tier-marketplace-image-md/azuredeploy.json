@@ -1328,16 +1328,23 @@
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": true,
                 "StorageConfigurationSettings": {
+                    "StorageWorkloadType": "OLTP",
+                    "DiskConfigurationType": "ADD",
                     "SQLDataSettings": {
-                        "LUNs": 1,
-                        "DefaultFilePath": "S:\\data"
+                        "LUNs": 0,
+                        "DefaultFilePath": "C:\\sql\\data"
                     },
                     "SQLLogSettings": {
-                        "LUNs": 1,
-                        "DefaultFilePath": "S:\\log"
+                        "LUNs": 0,
+                        "DefaultFilePath": "C:\\sql\\data"
                     },
                     "SQLTempDbSettings": {
                         "DefaultFilePath": "D:\\TEMPDB"
+                        "DataFileCount": 8,
+                        "DataFileSize": 8,
+                        "DataGrowth": 64,
+                        "LogFileSize": 8,
+                        "LogGrowth": 64
                     },
                     "SQLSystemDbOnDataDisk": true
                 },
