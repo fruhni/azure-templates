@@ -342,7 +342,7 @@
               }
             ],
             "scriptArguments": {
-              "Windows": "-luns \"0#1\" -names \"data#sap\" -paths \"C:\\sql\\data,C:\\sql\\log#S\"  -sizes \"70,100#100\""
+              "Windows": "-luns \"0#1\" -names \"data#sap\" -paths \"L\#S\"  -sizes \"100#100\""
             },
             "useFastNetwork": false
           },
@@ -1329,12 +1329,12 @@
                 "enableAutomaticUpgrade": "true",
                 "StorageConfigurationSettings": {
                     "SQLDataSettings": {
-                        "LUNs": [1],
-                        "DefaultFilePath": "s:\\sql\\data"
+                        "LUNs": [0],
+                        "DefaultFilePath": "L:\\sql\\data"
                     },
                     "SQLLogSettings": {
-                        "LUNs": [1],
-                        "DefaultFilePath": "s:\\sql\\data"
+                        "LUNs": [0],
+                        "DefaultFilePath": "L:\\sql\\log"
                     },
                     "SQLTempDbSettings": {
                         "DefaultFilePath": "D:\\TEMPDB",
