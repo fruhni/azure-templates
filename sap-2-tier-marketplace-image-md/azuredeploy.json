@@ -1329,12 +1329,12 @@
                 "enableAutomaticUpgrade": "true",
                 "StorageConfigurationSettings": {
                     "SQLDataSettings": {
-                        "LUNs": [0],
-                        "DefaultFilePath": "C:\\sql\\data"
+                        "LUNs": [1],
+                        "DefaultFilePath": "s:\\sql\\data"
                     },
                     "SQLLogSettings": {
-                        "LUNs": [0],
-                        "DefaultFilePath": "C:\\sql\\data"
+                        "LUNs": [1],
+                        "DefaultFilePath": "s:\\sql\\data"
                     },
                     "SQLTempDbSettings": {
                         "DefaultFilePath": "D:\\TEMPDB",
