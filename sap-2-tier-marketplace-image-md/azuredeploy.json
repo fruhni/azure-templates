@@ -1326,7 +1326,7 @@
                 "sqlManagement": "Full",
                 "leastPrivilegeMode": "Enabled",
                 "sqlImageSku": "Enterprise",
-                "enableAutomaticUpgrade": true,
+                "enableAutomaticUpgrade": "true",
                 "StorageConfigurationSettings": {
                     "StorageWorkloadType": "OLTP",
                     "DiskConfigurationType": "ADD",
@@ -1346,12 +1346,12 @@
                         "LogFileSize": 8,
                         "LogGrowth": 64
                     },
-                    "SQLSystemDbOnDataDisk": true
+                    "SQLSystemDbOnDataDisk": "true"
                 },
                 "ServerConfigurationsManagementSettings": {
                   "SQLInstanceSettings": {
                     "collation": "[parameters('collation')]",
-                    "isLPIMEnabled": true,
+                    "isLPIMEnabled": "true",
                     "maxDop": "[parameters('maxdop')]"
                   }
                 }
