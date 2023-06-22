@@ -1329,13 +1329,13 @@
                 "enableAutomaticUpgrade": true,
                 "StorageConfigurationSettings": {
                     "StorageWorkloadType": "OLTP",
-                    "DiskConfigurationType": "NEW",
+                    "DiskConfigurationType": "ADD",
                     "SQLDataSettings": {
-                        "LUNs": 0,
+                        "LUNs": [0],
                         "DefaultFilePath": "C:\\sql\\data"
                     },
                     "SQLLogSettings": {
-                        "LUNs": 0,
+                        "LUNs": [0],
                         "DefaultFilePath": "C:\\sql\\data"
                     },
                     "SQLTempDbSettings": {
