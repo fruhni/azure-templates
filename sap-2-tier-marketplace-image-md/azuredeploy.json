@@ -1318,7 +1318,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
-                "[concat('Microsoft.Compute/virtualMachines/extensions/', parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name)]"
+                "[resourceId(concat('Microsoft.Compute/virtualMachines/extensions/', parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name))]"
             ],
             "properties": {
                 "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
