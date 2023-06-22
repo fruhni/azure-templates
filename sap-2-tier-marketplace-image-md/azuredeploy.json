@@ -1327,10 +1327,19 @@
                 "leastPrivilegeMode": "Enabled",
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": true,
-                "storageConfigurationSettings": {
-                  "sqlTempDbSettings": {
-                    "defaultFilePath": "D:\\TEMPDB"
-                  }
+                "StorageConfigurationSettings": {
+                    "SQLDataSettings": {
+                        "LUNs": 1,
+                        "DefaultFilePath": "S:\\data"
+                    },
+                    "SQLLogSettings": {
+                        "LUNs": 1,
+                        "DefaultFilePath": "S:\\log"
+                    },
+                    "SQLTempDbSettings": {
+                        "DefaultFilePath": "D:\\TEMPDB"
+                    },
+                    "SQLSystemDbOnDataDisk": true
                 },
                 "ServerConfigurationsManagementSettings": {
                   "SQLInstanceSettings": {
