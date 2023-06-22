@@ -342,7 +342,7 @@
               }
             ],
             "scriptArguments": {
-              "Windows": "-luns \"0#1\" -names \"data#sap\" -paths \"L\#S\"  -sizes \"100#100\""
+              "Windows": "-luns \"0#1\" -names \"data#sap\" -paths \"L#S\"  -sizes \"100#100\""
             },
             "useFastNetwork": false
           },
