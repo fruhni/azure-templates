@@ -1339,7 +1339,7 @@
                         "DefaultFilePath": "C:\\sql\\data"
                     },
                     "SQLTempDbSettings": {
-                        "DefaultFilePath": "D:\\TEMPDB"
+                        "DefaultFilePath": "D:\\TEMPDB",
                         "DataFileCount": 8,
                         "DataFileSize": 8,
                         "DataGrowth": 64,
