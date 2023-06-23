@@ -1285,7 +1285,8 @@
                 "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
               }
             ]
-          }
+          },
+            "dataDisks": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].disks]"
         }
       },
       {
