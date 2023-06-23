@@ -1318,7 +1318,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
-                "[resourceId('Microsoft.Compute/disks/', concat(variables('vmName'),'_disk2'))]"
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'_disk2'))]"
             ],
             "properties": {
                 "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
