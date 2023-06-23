@@ -1291,6 +1291,7 @@
       },
       {
         "type": "Microsoft.Compute/virtualMachines/extensions",
+        "condition": "[not(equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver'))]",
         "name": "[concat(parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name)]",
         "apiVersion": "2018-10-01",
         "location": "[parameters('location')]",
@@ -1329,7 +1330,7 @@
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": "true",
                 "StorageConfigurationSettings": {
-                    "DiskConfigurationType": "EXTEND",
+                    "DiskConfigurationType": "NEW",
                     "StorageWorkloadType": "OLTP",
                     "SQLDataSettings": {
                         "LUNs": [0],
