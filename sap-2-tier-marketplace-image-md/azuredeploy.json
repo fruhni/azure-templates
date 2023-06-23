@@ -342,7 +342,7 @@
               }
             ],
             "scriptArguments": {
-              "Windows": "-luns \"0#1\" -names \"data#sap\" -paths \"C:\\sql\\data,C:\\sql\\log#S\"  -sizes \"70,100#100\""
+              "Windows": "-luns \"0#1\" -names \"data#sap\" -paths \"S#L\"  -sizes \"100#100\""
             },
             "useFastNetwork": false
           },
@@ -1328,7 +1328,7 @@
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": "true",
                 "StorageConfigurationSettings": {
-                    "DiskConfigurationType": "NEW",
+                    "DiskConfigurationType": "EXTEND",
                     "StorageWorkloadType": "OLTP",
                     "SQLDataSettings": {
                         "LUNs": [1],
