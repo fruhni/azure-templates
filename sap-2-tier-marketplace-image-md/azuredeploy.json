@@ -1317,7 +1317,8 @@
             "name": "[parameters('vmName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
+                "[resourceId('Microsoft.Compute/disks/', concat(variables('vmName'),'_disk2'))]"
             ],
             "properties": {
                 "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
@@ -1328,7 +1329,7 @@
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": "true",
                 "StorageConfigurationSettings": {
-                    "DiskConfigurationType": "ADD",
+                    "DiskConfigurationType": "EXTEND",
                     "StorageWorkloadType": "OLTP",
                     "SQLDataSettings": {
                         "LUNs": [0],
