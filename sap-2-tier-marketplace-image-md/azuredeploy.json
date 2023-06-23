@@ -1328,6 +1328,8 @@
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": "true",
                 "StorageConfigurationSettings": {
+                    "DiskConfigurationType": "NEW",
+                    "StorageWorkloadType": "OLTP",
                     "SQLDataSettings": {
                         "LUNs": [0],
                         "DefaultFilePath": "L:\\sql\\data"
