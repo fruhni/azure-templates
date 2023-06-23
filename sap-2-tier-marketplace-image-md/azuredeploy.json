@@ -1277,8 +1277,8 @@
               "managedDisk": {
                 "storageAccountType": "StandardSSD_LRS"
               }
-            },
-            "dataDisks": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].disks]"
+            }//,
+            //"dataDisks": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].disks]"
           },
           "networkProfile": {
             "networkInterfaces": [
