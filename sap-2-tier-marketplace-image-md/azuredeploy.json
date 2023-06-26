@@ -1331,7 +1331,7 @@
                 "sqlImageSku": "Enterprise",
                 "enableAutomaticUpgrade": "true",
                 "StorageConfigurationSettings": {
-                    "DiskConfigurationType": "ADD",
+                    "DiskConfigurationType": "NEW",
                     "StorageWorkloadType": "OLTP",
                     "SQLDataSettings": {
                         "LUNs": [1],
