@@ -329,7 +329,7 @@
                 "createOption": "attach",
                 "diskSizeGB": 128,
                 "managedDisk": {
-                    "storageAccountType": "[parameters('storage')]"
+                    "storageAccountType": "[parameters('storage')]",
                     "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun0'))]"
                 }
               },
@@ -340,7 +340,7 @@
                 "createOption": "attach",
                 "diskSizeGB": 128,
                 "managedDisk": {
-                    "storageAccountType": "[parameters('storage')]"
+                    "storageAccountType": "[parameters('storage')]",
                     "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun1'))]"
                 }
               }
@@ -360,7 +360,7 @@
                 "createOption": "attach",
                 "diskSizeGB": 128,
                 "managedDisk": {
-                    "storageAccountType": "[parameters('storage')]"
+                    "storageAccountType": "[parameters('storage')]",
                     "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun0'))]"
                 }
               }
