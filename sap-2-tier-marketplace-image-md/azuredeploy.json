@@ -337,7 +337,7 @@
                 "name": "[concat(parameters('vmName'), '-datadisk-lun1')]",
                 "caching": "ReadOnly",
                 "createOption": "Empty",
-                "diskSizeGB": 128,
+                "diskSizeGB": 1024,
                 "managedDisk": {
                     "storageAccountType": "[parameters('storage')]"
                 }
