@@ -324,6 +324,7 @@
             "disks": [
               {
                 "lun": 0,
+                "name": "[concat(parameters('vmName'), '-datadisk-lun0')]",
                 "caching": "ReadOnly",
                 "createOption": "attach",
                 "diskSizeGB": 128,
@@ -333,6 +334,7 @@
               },
               {
                 "lun": 1,
+                "name": "[concat(parameters('vmName'), '-datadisk-lun1')]",
                 "caching": "ReadOnly",
                 "createOption": "attach",
                 "diskSizeGB": 128,
@@ -351,6 +353,7 @@
             "disks": [
               {
                 "lun": 0,
+                "name": "[concat(parameters('vmName'), '-datadisk-lun0')]",
                 "caching": "ReadOnly",
                 "createOption": "attach",
                 "diskSizeGB": 128,
