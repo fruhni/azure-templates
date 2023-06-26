@@ -330,6 +330,7 @@
                 "diskSizeGB": 128,
                 "managedDisk": {
                     "storageAccountType": "[parameters('storage')]"
+                    "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun0'))]"
                 }
               },
               {
@@ -340,6 +341,7 @@
                 "diskSizeGB": 128,
                 "managedDisk": {
                     "storageAccountType": "[parameters('storage')]"
+                    "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun1'))]"
                 }
               }
             ],
@@ -359,6 +361,7 @@
                 "diskSizeGB": 128,
                 "managedDisk": {
                     "storageAccountType": "[parameters('storage')]"
+                    "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun0'))]"
                 }
               }
             ],
