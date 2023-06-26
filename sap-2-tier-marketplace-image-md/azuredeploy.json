@@ -326,22 +326,20 @@
                 "lun": 0,
                 "name": "[concat(parameters('vmName'), '-datadisk-lun0')]",
                 "caching": "ReadOnly",
-                "createOption": "attach",
+                "createOption": "Empty",
                 "diskSizeGB": 128,
                 "managedDisk": {
-                    "storageAccountType": "[parameters('storage')]",
-                    "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun0'))]"
+                    "storageAccountType": "[parameters('storage')]"
                 }
               },
               {
                 "lun": 1,
                 "name": "[concat(parameters('vmName'), '-datadisk-lun1')]",
                 "caching": "ReadOnly",
-                "createOption": "attach",
+                "createOption": "Empty",
                 "diskSizeGB": 128,
                 "managedDisk": {
-                    "storageAccountType": "[parameters('storage')]",
-                    "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun1'))]"
+                    "storageAccountType": "[parameters('storage')]"
                 }
               }
             ],
@@ -357,11 +355,10 @@
                 "lun": 0,
                 "name": "[concat(parameters('vmName'), '-datadisk-lun0')]",
                 "caching": "ReadOnly",
-                "createOption": "attach",
+                "createOption": "FromImage",
                 "diskSizeGB": 128,
                 "managedDisk": {
-                    "storageAccountType": "[parameters('storage')]",
-                    "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'), '-datadisk-lun0'))]"
+                    "storageAccountType": "[parameters('storage')]"
                 }
               }
             ],
