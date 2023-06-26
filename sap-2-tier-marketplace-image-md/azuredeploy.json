@@ -344,7 +344,7 @@
               }
             ],
             "scriptArguments": {
-              "Windows": "-luns \"0#1\" -names \"data#sap\" -paths \"S#L\"  -sizes \"100#100\""
+              "Windows": "[if(equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver'), '-luns \"0\" -names \"sap\" -paths \"S\"  -sizes \"100\"', '-luns \"0#1\" -names \"data#sap\" -paths \"C:\\sql\\data,C:\\sql\\log#S\"  -sizes \"70,100#100\"')]"
             },
             "useFastNetwork": false
           },
