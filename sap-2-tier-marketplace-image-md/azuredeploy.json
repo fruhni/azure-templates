@@ -1368,7 +1368,7 @@
         "location": "[parameters('location')]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
-            "[if(equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver'), '[concat('Microsoft.SqlVirtualMachine/sqlVirtualMachines', parameters('vmName'))]', '')]"
+             "[if(equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver'), '[concat('Microsoft.SqlVirtualMachine/sqlVirtualMachines', parameters('vmName'))]', '')]"
         ],
         "properties": {
           "publisher": "[variables('csExtension')[variables('internalOSType')].Publisher]",
