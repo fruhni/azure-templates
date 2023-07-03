@@ -1367,7 +1367,7 @@
         "apiVersion": "2018-10-01",
         "location": "[parameters('location')]",
         "dependsOn": [
-            "[if(equals(variables('images')[parameters('osType')].publisher, 'microsoftsqlserver'), [concat('Microsoft.SqlVirtualMachine/sqlVirtualMachines/', parameters('vmName')), concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))], concat('Microsoft.Compute/virtualMachines/', parameters('vmName')))]"
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
         ],
         "properties": {
           "publisher": "[variables('csExtension')[variables('internalOSType')].Publisher]",
