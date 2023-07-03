@@ -1314,6 +1314,27 @@
             "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines',concat(parameters('vmName')))]"
         }
     },
+      {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(parameters('vmName'), '/CustomScriptExtension')]",
+        "apiVersion": "2018-10-01",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+        ],
+        "properties": {
+          "publisher": "[variables('csExtension')[variables('internalOSType')].Publisher]",
+          "type": "[variables('csExtension')[variables('internalOSType')].Name]",
+          "typeHandlerVersion": "[variables('csExtension')[variables('internalOSType')].Version]",
+          "autoUpgradeMinorVersion": true,
+          "settings": {
+            "fileUris": [
+              "[variables('csExtension')[variables('internalOSType')].script]"
+            ],
+            "commandToExecute": "[concat(variables('csExtension')[variables('internalOSType')].scriptCall, ' ', variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].scriptArguments[variables('internalOSType')])]"
+          }
+        }
+      },
         {
             "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
             "condition": "[equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver')]",
@@ -1361,27 +1382,6 @@
                   }
                 }
             }
-        },
-      {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name)]",
-        "apiVersion": "2018-10-01",
-        "location": "[parameters('location')]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-        ],
-        "properties": {
-          "publisher": "[variables('csExtension')[variables('internalOSType')].Publisher]",
-          "type": "[variables('csExtension')[variables('internalOSType')].Name]",
-          "typeHandlerVersion": "[variables('csExtension')[variables('internalOSType')].Version]",
-          "autoUpgradeMinorVersion": true,
-          "settings": {
-            "fileUris": [
-              "[variables('csExtension')[variables('internalOSType')].script]"
-            ],
-            "commandToExecute": "[concat(variables('csExtension')[variables('internalOSType')].scriptCall, ' ', variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].scriptArguments[variables('internalOSType')])]"
-          }
         }
-      }
     ]
   }
