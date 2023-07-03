@@ -1343,7 +1343,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
-                "[concat('Microsoft.Compute/virtualMachines/extensions/', parameters('vmName'), '/CustomScriptExtension')]"
+                "[resourceId('concat('Microsoft.Compute/virtualMachines/extensions/', parameters('vmName'), '/CustomScriptExtension'))]"
             ],
             "properties": {
                 "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
