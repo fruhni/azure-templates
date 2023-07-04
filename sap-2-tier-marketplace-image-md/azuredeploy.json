@@ -1316,7 +1316,7 @@
     },
       {
         "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(parameters('vmName'), '/CustomScriptExtension')]",
+        "name": "[concat(parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name)]",
         "apiVersion": "2018-10-01",
         "location": "[parameters('location')]",
         "dependsOn": [
