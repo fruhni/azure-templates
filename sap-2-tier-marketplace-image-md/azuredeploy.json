@@ -134,6 +134,14 @@
       "type": "int",
       "defaultValue": 0
     },
+    "ShutDown": {
+      "type": "string",
+      "defaultValue": "Enabled"
+    },
+    "ShutDownTime": {
+      "type": "string",
+      "defaultValue": "0000"
+    },
     "_artifactsLocation": {
       "type": "string",
       "metadata": {
@@ -1304,10 +1312,10 @@
         "[concat('Microsoft.Compute/virtualMachines/',concat(parameters('vmName')))]"
       ],
       "properties": {
-        "status": "Enabled",
+        "status": "[parameters('ShutDown')]",
         "taskType": "ComputeVmShutdownTask",
         "dailyRecurrence": {
-          "time": "2300"
+          "time": "[parameters('ShutDownTime')]"
         },
         "timeZoneId": "W. Europe Standard Time",
         "notificationSettings": {
@@ -1342,7 +1350,7 @@
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "condition": "[equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver')]",
-      "name": "[concat(parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name)]",
+      "name": "[concat(parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name, '-SQL')]",
       "apiVersion": "2018-10-01",
       "location": "[parameters('location')]",
       "dependsOn": [
