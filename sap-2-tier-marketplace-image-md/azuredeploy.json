@@ -205,8 +205,7 @@
         "sku": "windows-server-2022-azure-edition-hotpatch",
         "offer": "windowsserverhotpatch-previews",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows",
-        "version": "latest"
+        "OSType": "Windows"
       },
       "Windows Server 2022 SQL": {
         "sku": "enterprise-gen2",
@@ -1277,28 +1276,11 @@
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
       ],
       "zones": "[variables('selectedZones')]",
-      "apiVersion": "2023-03-01",
+      "apiVersion": "2022-03-01",
       "location": "[parameters('location')]",
       "properties": {
         "hardwareProfile": {
           "vmSize": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].vmSize]"
-        },
-        "osProfile": {
-          "computerName": "[parameters('vmName')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPasswordOrKey')]",
-          "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]",
-          "windowsConfiguration": {
-            "enableAutomaticUpdates": true,
-            "provisionVmAgent": true,
-            "patchSettings": {
-              "enableHotpatching": "[if(equals(variables('images')[parameters('osType')].sku,'windows-server-2022-azure-edition-hotpatch'), 'true', 'false')]",
-              "patchMode":         "[if(equals(variables('images')[parameters('osType')].sku,'windows-server-2022-azure-edition-hotpatch'), 'AutomaticByPlatform', 'AutomaticByOS')]",
-              "automaticByPlatformSettings": {
-                "rebootSetting": "Never"
-              }
-            }
-          }
         },
         "storageProfile": {
           "imageReference": {
@@ -1316,6 +1298,23 @@
             }
           },
           "dataDisks": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].disks]"
+        },
+        "osProfile": {
+          "computerName": "[parameters('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPasswordOrKey')]",
+          "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]",
+          "windowsConfiguration": {
+            "enableAutomaticUpdates": true,
+            "provisionVmAgent": true,
+            "patchSettings": {
+              "enableHotpatching": "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews', 'true', 'false')]",
+              "patchMode":         "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), 'AutomaticByPlatform', 'AutomaticByOS')]",
+              "automaticByPlatformSettings": {
+                "rebootSetting": "Never"
+              }
+            }
+          }
         },
         "networkProfile": {
           "networkInterfaces": [
