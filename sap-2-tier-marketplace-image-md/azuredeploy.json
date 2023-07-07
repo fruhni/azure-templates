@@ -1277,7 +1277,7 @@
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
       ],
       "zones": "[variables('selectedZones')]",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "[providers('Microsoft.DevTestLab','labs').apiVersions[0]]",
       "location": "[parameters('location')]",
       "properties": {
         "hardwareProfile": {
