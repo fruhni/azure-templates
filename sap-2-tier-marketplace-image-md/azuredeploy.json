@@ -1327,35 +1327,11 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "condition": "[not(equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver'))]",
       "name": "[concat(parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name)]",
       "apiVersion": "2018-10-01",
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-      ],
-      "properties": {
-        "publisher": "[variables('csExtension')[variables('internalOSType')].Publisher]",
-        "type": "[variables('csExtension')[variables('internalOSType')].Name]",
-        "typeHandlerVersion": "[variables('csExtension')[variables('internalOSType')].Version]",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "fileUris": [
-            "[variables('csExtension')[variables('internalOSType')].script]"
-          ],
-          "commandToExecute": "[concat(variables('csExtension')[variables('internalOSType')].scriptCall, ' ', variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].scriptArguments[variables('internalOSType')])]"
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "condition": "[equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver')]",
-      "name": "[concat(parameters('vmName'), '/', variables('csExtension')[variables('internalOSType')].Name, '-SQL')]",
-      "apiVersion": "2018-10-01",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
-        "[concat('Microsoft.SqlVirtualMachine/sqlVirtualMachines/', parameters('vmName'))]"
       ],
       "properties": {
         "publisher": "[variables('csExtension')[variables('internalOSType')].Publisher]",
@@ -1377,7 +1353,8 @@
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'), '/extensions/', variables('csExtension')[variables('internalOSType')].Name)]",
       ],
       "properties": {
         "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
