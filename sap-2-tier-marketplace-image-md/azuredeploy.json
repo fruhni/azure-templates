@@ -1292,8 +1292,8 @@
             "enableAutomaticUpdates": true,
             "provisionVmAgent": true,
             "patchSettings": {
-              "enableHotpatching": true,
-              "patchMode": "[if(equals(variables('images')[parameters('osType')].sku,'windows-server-2022-azure-edition-hotpatch'), 'AutomaticByPlatform', 'AutomaticByOS')]"
+              "enableHotpatching": "[if(equals(variables('images')[parameters('osType')].sku,'windows-server-2022-azure-edition-hotpatch'), true, false)]",
+              "patchMode": "[if(equals(variables('images')[parameters('osType')].sku,'windows-server-2022-azure-edition-hotpatch'), 'AutomaticByPlatform', 'AutomaticByOS')]",
               "automaticByPlatformSettings": {
                 "rebootSetting": "Never"
               }
