@@ -11,6 +11,7 @@
         "Windows Server 2019 Datacenter",
         "Windows Server 2022 Datacenter",
         "Windows Server 2022 Azure",
+        "Windows Server 2022 Hotpatch",
         "Windows Server 2022 SQL",
         "SLES 12",
         "SLES 15",
@@ -199,6 +200,13 @@
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
         "OSType": "Windows"
+      },
+      "Windows Server 2022 Azure": {
+        "sku": "windows-server-2022-azure-edition-hotpatch",
+        "offer": "windowsserverhotpatch-previews",
+        "publisher": "MicrosoftWindowsServer",
+        "OSType": "Windows",
+        "version": "latest"
       },
       "Windows Server 2022 SQL": {
         "sku": "enterprise-gen2",
