@@ -142,6 +142,10 @@
       "type": "string",
       "defaultValue": "0000"
     },
+    "retryCount": {
+      "type": "int",
+      "defaultValue": 1
+    },
     "_artifactsLocation": {
       "type": "string",
       "metadata": {
@@ -1347,56 +1351,74 @@
       }
     },
     {
-      "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
-      "condition": "[equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver')]",
-      "apiVersion": "2023-01-01-preview",
-      "name": "[parameters('vmName')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'), '/extensions/', variables('csExtension')[variables('internalOSType')].Name)]"
-      ],
+      "type": "Microsoft.Resources/deployments",
+      "name": "retryLoop",
+      "apiVersion": "2021-04-01",
       "properties": {
-        "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
-        "sqlImageOffer": "[variables('images')[parameters('osType')].offer]",
-        "sqlServerLicenseType": "AHUB",
-        "sqlManagement": "Full",
-        "leastPrivilegeMode": "Enabled",
-        "sqlImageSku": "Enterprise",
-        "enableAutomaticUpgrade": "true",
-        "StorageConfigurationSettings": {
-          "DiskConfigurationType": "NEW",
-          "StorageWorkloadType": "OLTP",
-          "SQLDataSettings": {
-            "LUNs": [
-              1
-            ],
-            "DefaultFilePath": "L:\\sql\\data"
-          },
-          "SQLLogSettings": {
-            "LUNs": [
-              1
-            ],
-            "DefaultFilePath": "L:\\sql\\log"
-          },
-          "SQLTempDbSettings": {
-            "DefaultFilePath": "D:\\TEMPDB",
-            "DataFileCount": 8,
-            "DataFileSize": 8,
-            "DataGrowth": 64,
-            "LogFileSize": 8,
-            "LogGrowth": 64
-          },
-          "SQLSystemDbOnDataDisk": "true"
+        "mode": "Incremental",
+        "expressionEvaluationOptions": {
+          "scope": "inner"
         },
-        "ServerConfigurationsManagementSettings": {
-          "SQLInstanceSettings": {
-            "collation": "[parameters('collation')]",
-            "isLPIMEnabled": "true",
-            "maxDop": "[parameters('maxdop')]"
+        "copy": {
+          "name": "retryLoopCopy",
+          "count": "[parameters('retryCount')]"
+        },
+        "dependsOn": []
+      },
+      "resources": [
+        {
+          "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
+          "condition": "[equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver')]",
+          "apiVersion": "2023-01-01-preview",
+          "name": "[parameters('vmName')]",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'), '/extensions/', variables('csExtension')[variables('internalOSType')].Name)]"
+          ],
+          "properties": {
+            "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
+            "sqlImageOffer": "[variables('images')[parameters('osType')].offer]",
+            "sqlServerLicenseType": "AHUB",
+            "sqlManagement": "Full",
+            "leastPrivilegeMode": "Enabled",
+            "sqlImageSku": "Enterprise",
+            "enableAutomaticUpgrade": "true",
+            "StorageConfigurationSettings": {
+              "DiskConfigurationType": "NEW",
+              "StorageWorkloadType": "OLTP",
+              "SQLDataSettings": {
+                "LUNs": [
+                  1
+                ],
+                "DefaultFilePath": "L:\\sql\\data"
+              },
+              "SQLLogSettings": {
+                "LUNs": [
+                  1
+                ],
+                "DefaultFilePath": "L:\\sql\\log"
+              },
+              "SQLTempDbSettings": {
+                "DefaultFilePath": "D:\\TEMPDB",
+                "DataFileCount": 8,
+                "DataFileSize": 8,
+                "DataGrowth": 64,
+                "LogFileSize": 8,
+                "LogGrowth": 64
+              },
+              "SQLSystemDbOnDataDisk": "true"
+            },
+            "ServerConfigurationsManagementSettings": {
+              "SQLInstanceSettings": {
+                "collation": "[parameters('collation')]",
+                "isLPIMEnabled": "true",
+                "maxDop": "[parameters('maxdop')]"
+              }
+            }
           }
         }
-      }
+      ]
     }
   ]
 }
