@@ -201,7 +201,7 @@
         "publisher": "MicrosoftWindowsServer",
         "OSType": "Windows"
       },
-      "Windows Server 2022 Azure": {
+      "Windows Server 2022 Hotpatch": {
         "sku": "windows-server-2022-azure-edition-hotpatch",
         "offer": "windowsserverhotpatch-previews",
         "publisher": "MicrosoftWindowsServer",
