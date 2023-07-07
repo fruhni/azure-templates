@@ -1287,7 +1287,18 @@
           "computerName": "[parameters('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPasswordOrKey')]",
-          "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
+          "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]",
+          "windowsConfiguration": {
+            "enableAutomaticUpdates": true,
+            "provisionVmAgent": true,
+            "patchSettings": {
+              "enableHotpatching": true,
+              "patchMode": "[if(equals(variables('images')[parameters('osType')].sku,'windows-server-2022-azure-edition-hotpatch'), 'AutomaticByPlatform', 'AutomaticByOS')]"
+              "automaticByPlatformSettings": {
+                "rebootSetting": "Never"
+              }
+            }
+          }
         },
         "storageProfile": {
           "imageReference": {
