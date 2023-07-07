@@ -1354,7 +1354,7 @@
       "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
       "condition": "[equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver')]",
       "apiVersion": "2023-01-01-preview",
-      "name": "[parameters('vmName')]",
+      "name": "[concat(parameters('vmName'), copyIndex())]",
       "location": "[parameters('location')]",
       "copy":
       {
