@@ -1356,11 +1356,6 @@
       "apiVersion": "2023-01-01-preview",
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
-      "copy":
-      {
-        "name": "retryLoopCopy",
-        "count": "[parameters('retryCount')]"
-      },
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
         "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'), '/extensions/', variables('csExtension')[variables('internalOSType')].Name)]"
