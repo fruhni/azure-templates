@@ -1317,9 +1317,10 @@
         }
       },
       "plan": {
-        "name": "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), variables('images')[parameters('osType')].sku, '')]",
-        "publisher": "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), variables('images')[parameters('osType')].publisher, '')]",
-        "product": "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), variables('images')[parameters('osType')].offer, '')]"
+        "condition": "[equals(variables('images')[parameters('osType')].offer,'windowsserverhotpatch-previews')]",
+        "name": "[variables('images')[parameters('osType')].sku]",
+        "publisher": "[variables('images')[parameters('osType')].publisher]",
+        "product": "[variables('images')[parameters('osType')].offer]"
       }
     },
     {
