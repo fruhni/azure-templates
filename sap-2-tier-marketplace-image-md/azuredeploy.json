@@ -1401,6 +1401,9 @@
             "DefaultFilePath": "L:\\sql\\log"
           },
           "SQLTempDbSettings": {
+            "LUNs": [
+              1
+            ],
             "DefaultFilePath": "L:\\sql\\TEMPDB",
             "DataFileCount": 8,
             "DataFileSize": 8,
