@@ -1221,6 +1221,11 @@
         "automaticByPlatformSettings": {
           "rebootSetting": "Never"
         }
+    },
+    "plan": {        
+      "name": "windows-server-2022-azure-edition-hotpatch",
+      "publisher": "microsoftwindowsserver",
+      "product": "windowsserverhotpatch-previews"
     }
   },
   "resources": [
@@ -1317,11 +1322,7 @@
           ]
         }
       },
-      "plan": {        
-                "name": "windows-server-2022-azure-edition-hotpatch",
-                "publisher": "microsoftwindowsserver",
-                "product": "windowsserverhotpatch-previews"
-      }
+      "plan": "[if(equals(variables('images')[parameters('osType')].sku, 'windows-server-2022-azure-edition-hotpatch'),variables('plan'), json('null'))]"
     },
     {
       "apiVersion": "[providers('Microsoft.DevTestLab','labs').apiVersions[0]]",
