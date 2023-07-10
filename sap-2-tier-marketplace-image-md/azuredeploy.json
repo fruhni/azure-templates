@@ -258,7 +258,7 @@
     "sizes": {
       "Demo": {
         "HANA": {
-          "vmSize": "Standard_E4s_v4",
+          "vmSize": "Standard_E4s_v5",
           "disks": [
             {
               "lun": 0,
@@ -339,7 +339,7 @@
           "useFastNetwork": false
         },
         "SQL": {
-          "vmSize": "Standard_E2s_v4",
+          "vmSize": "Standard_E2s_v5",
           "disks": [
             {
               "lun": 0,
@@ -368,7 +368,7 @@
           "useFastNetwork": false
         },
         "other": {
-          "vmSize": "Standard_E2s_v4",
+          "vmSize": "Standard_E2s_v5",
           "disks": [
             {
               "lun": 0,
@@ -390,7 +390,7 @@
       },
       "Small < 2.000 SAPS": {
         "HANA": {
-          "vmSize": "Standard_E32s_v4",
+          "vmSize": "Standard_E32s_v5",
           "disks": [
             {
               "lun": 0,
@@ -471,7 +471,7 @@
           "useFastNetwork": true
         },
         "SQL": {
-          "vmSize": "Standard_D4s_v4",
+          "vmSize": "Standard_D4s_v5",
           "disks": [
             {
               "lun": 0,
@@ -534,7 +534,7 @@
           "useFastNetwork": true
         },
         "other": {
-          "vmSize": "Standard_D4s_v4",
+          "vmSize": "Standard_D4s_v5",
           "disks": [
             {
               "lun": 0,
@@ -564,7 +564,7 @@
       },
       "Medium < 9.000 SAPS": {
         "HANA": {
-          "vmSize": "Standard_E64s_v4",
+          "vmSize": "Standard_E64s_v5",
           "disks": [
             {
               "lun": 0,
@@ -627,7 +627,7 @@
           "useFastNetwork": true
         },
         "SQL": {
-          "vmSize": "Standard_D32s_v4",
+          "vmSize": "Standard_D32s_v5",
           "disks": [
             {
               "lun": 0,
@@ -717,7 +717,7 @@
           "useFastNetwork": true
         },
         "other": {
-          "vmSize": "Standard_D32s_v4",
+          "vmSize": "Standard_D32s_v5",
           "disks": [
             {
               "lun": 0,
@@ -848,7 +848,7 @@
           "useFastNetwork": true
         },
         "SQL": {
-          "vmSize": "Standard_D64s_v4",
+          "vmSize": "Standard_D64s_v5",
           "disks": [
             {
               "lun": 0,
@@ -920,7 +920,7 @@
           "useFastNetwork": true
         },
         "other": {
-          "vmSize": "Standard_D64s_v4",
+          "vmSize": "Standard_D64s_v5",
           "disks": [
             {
               "lun": 0,
@@ -1042,7 +1042,7 @@
           "useFastNetwork": true
         },
         "SQL": {
-          "vmSize": "Standard_E64s_v4",
+          "vmSize": "Standard_E64s_v5",
           "disks": [
             {
               "lun": 0,
@@ -1132,7 +1132,7 @@
           "useFastNetwork": true
         },
         "other": {
-          "vmSize": "Standard_E64s_v4",
+          "vmSize": "Standard_E64s_v5",
           "disks": [
             {
               "lun": 0,
@@ -1401,14 +1401,14 @@
             "DefaultFilePath": "L:\\sql\\log"
           },
           "SQLTempDbSettings": {
-            "DefaultFilePath": "D:\\TEMPDB",
+            "DefaultFilePath": "L:\\sql\\TEMPDB",
             "DataFileCount": 8,
             "DataFileSize": 8,
             "DataGrowth": 64,
             "LogFileSize": 8,
             "LogGrowth": 64
           },
-          "SQLSystemDbOnDataDisk": "true"
+          "SQLSystemDbOnDataDisk": false
         },
         "ServerConfigurationsManagementSettings": {
           "SQLInstanceSettings": {
