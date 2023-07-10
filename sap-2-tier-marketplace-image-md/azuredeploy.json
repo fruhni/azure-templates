@@ -1316,7 +1316,11 @@
           ]
         }
       },
-      "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'),       "plan": {"name": "[variables('images')[parameters('osType')].sku]", "publisher": "[variables('images')[parameters('osType')].publisher]", "product": "[variables('images')[parameters('osType')].offer]" }, '')]"
+      "plan": {
+        "name": "[variables('images')[parameters('osType')].sku]",
+        "publisher": "[variables('images')[parameters('osType')].publisher]",
+        "product": "[variables('images')[parameters('osType')].offer]"
+      }
     },
     {
       "apiVersion": "[providers('Microsoft.DevTestLab','labs').apiVersions[0]]",
