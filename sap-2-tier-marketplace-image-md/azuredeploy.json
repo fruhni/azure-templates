@@ -1303,7 +1303,7 @@
               "enableHotpatching": "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), 'true', 'false')]",
               "patchMode":         "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), 'AutomaticByPlatform', 'AutomaticByOS')]",
               "automaticByPlatformSettings": {
-                "rebootSetting": "Never"
+                "rebootSetting": "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), 'Never', '')]"
               }
             }
           }
