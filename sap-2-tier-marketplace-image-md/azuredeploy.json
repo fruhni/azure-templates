@@ -1214,7 +1214,14 @@
       "true": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('subnetName'))]",
       "false": "[parameters('subnetId')]"
     },
-    "selectedSubnetId": "[variables('subnets')[string(equals(length(parameters('subnetId')), 0))]]"
+    "selectedSubnetId": "[variables('subnets')[string(equals(length(parameters('subnetId')), 0))]]",
+    "patchSettings": {
+        "enableHotpatching": true,
+        "patchMode":         "AutomaticByPlatform",
+        "automaticByPlatformSettings": {
+          "rebootSetting": "Never"
+        }
+    }
   },
   "resources": [
     {
@@ -1299,13 +1306,7 @@
           "windowsConfiguration": {
             "enableAutomaticUpdates": true,
             "provisionVmAgent": true,
-            "patchSettings": {
-              "enableHotpatching": "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), 'true', 'false')]",
-              "patchMode":         "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), 'AutomaticByPlatform', 'AutomaticByOS')]",
-              "automaticByPlatformSettings": {
-                "rebootSetting": "[if(equals(variables('images')[parameters('osType')].offer, 'windowsserverhotpatch-previews'), 'Never', '')]"
-              }
-            }
+            "patchSettings": "[if(equals(variables('images')[parameters('osType')].sku, 'windows-server-2022-azure-edition-hotpatch'),variables('patchSettings'), json('null'))]"
           }
         },
         "networkProfile": {
