@@ -1289,14 +1289,6 @@
             "sku": "[variables('images')[parameters('osType')].sku]",
             "version": "latest"
           },
-          "osDisk": {
-            "name": "[concat(parameters('vmName'), '-osdisk')]",
-            "caching": "ReadWrite",
-            "createOption": "FromImage",
-            "managedDisk": {
-              "storageAccountType": "StandardSSD_LRS"
-            }
-          },
           "dataDisks": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].disks]"
         },
         "osProfile": {
@@ -1323,6 +1315,11 @@
             }
           ]
         }
+      },
+      "plan": {
+        "name": "[variables('images')[parameters('osType')].sku]",
+        "publisher": "[variables('images')[parameters('osType')].publisher]",
+        "product": "[variables('images')[parameters('osType')].offer]"
       }
     },
     {
