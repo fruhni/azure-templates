@@ -339,7 +339,7 @@
           "useFastNetwork": false
         },
         "SQL": {
-          "vmSize": "Standard_E2s_v5",
+          "vmSize": "Standard_E2ads_v5",
           "disks": [
             {
               "lun": 0,
@@ -368,7 +368,7 @@
           "useFastNetwork": false
         },
         "other": {
-          "vmSize": "Standard_E2s_v5",
+          "vmSize": "Standard_E2ads_v5",
           "disks": [
             {
               "lun": 0,
