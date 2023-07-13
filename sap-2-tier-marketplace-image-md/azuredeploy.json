@@ -1401,17 +1401,14 @@
             "DefaultFilePath": "L:\\sql\\log"
           },
           "SQLTempDbSettings": {
-            "LUNs": [
-              1
-            ],
-            "DefaultFilePath": "L:\\sql\\TEMPDB",
+            "DefaultFilePath": "D:\\sql\\TEMPDB",
             "DataFileCount": 8,
             "DataFileSize": 8,
             "DataGrowth": 64,
             "LogFileSize": 8,
             "LogGrowth": 64
           },
-          "SQLSystemDbOnDataDisk": false
+          "SQLSystemDbOnDataDisk": true
         },
         "ServerConfigurationsManagementSettings": {
           "SQLInstanceSettings": {
