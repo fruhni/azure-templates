@@ -143,6 +143,14 @@
       "type": "string",
       "defaultValue": "0000"
     },
+    "sizeSAPDrive": {
+      "type": "int",
+      "defaultValue": 50
+    },
+    "sizeSQLDrive": {
+      "type": "int",
+      "defaultValue": 512
+    },
     "retryCount": {
       "type": "int",
       "defaultValue": 3
@@ -346,7 +354,7 @@
               "name": "[concat(parameters('vmName'), '-datadisk-lun0')]",
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128,
+              "diskSizeGB": "[parameters('sizeSAPDrive')]",
               "managedDisk": {
                 "storageAccountType": "[parameters('storage')]"
               }
@@ -356,7 +364,7 @@
               "name": "[concat(parameters('vmName'), '-datadisk-lun1')]",
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 2048,
+              "diskSizeGB": "[parameters('sizeSQLDrive')]",
               "managedDisk": {
                 "storageAccountType": "[parameters('storage')]"
               }
