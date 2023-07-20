@@ -160,12 +160,12 @@
       "defaultValue": "Sunday"
     },
     "sqlAutopatchingStartHour": {
-      "type": "int",
-      "defaultValue": 2
+      "type": "string",
+      "defaultValue": "12"
     },
     "sqlAutopatchingWindowDuration": {
-      "type": "int",
-      "value": 60
+      "type": "string",
+      "value": "60"
     },
     "retryCount": {
       "type": "int",
