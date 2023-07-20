@@ -1250,6 +1250,12 @@
       "name": "windows-server-2022-azure-edition-hotpatch",
       "publisher": "microsoftwindowsserver",
       "product": "windowsserverhotpatch-previews"
+    },
+    "AutoPatchingSettings": {
+      "Enable": "[parameters('sqlAutopatching')]",
+      "DayOfWeek": "[parameters('sqlAutopatchingDayOfWeek')]",
+      "MaintenanceWindowStartingHour": "[parameters('sqlAutopatchingStartHour')]",
+      "MaintenanceWindowDuration": "[parameters('sqlAutopatchingWindowDuration')]"
     }
   },
   "resources": [
@@ -1409,12 +1415,7 @@
         "leastPrivilegeMode": "Enabled",
         "sqlImageSku": "Enterprise",
         "enableAutomaticUpgrade": "true",
-        "AutoPatchingSettings": {
-          "Enable": "[parameters('sqlAutopatching')]",
-          "DayOfWeek": "[parameters('sqlAutopatchingDayOfWeek')]",
-          "MaintenanceWindowStartingHour": "[parameters('sqlAutopatchingStartHour')]",
-          "MaintenanceWindowDuration": "[parameters('sqlAutopatchingWindowDuration')]"
-        },
+        "AutoPatchingSettings": "[if(parameters('sqlAutopatching'),variables('AutoPatchingSettings'), json('null'))]",
         "StorageConfigurationSettings": {
           "DiskConfigurationType": "NEW",
           "StorageWorkloadType": "OLTP",
