@@ -151,6 +151,22 @@
       "type": "int",
       "defaultValue": 512
     },
+    "sqlAutopatching": {
+      "type": "bool",
+      "defaultValue": false
+    },
+    "sqlAutopatchingDayOfWeek": {
+      "type": "string",
+      "defaultValue": "Sunday"
+    },
+    "sqlAutopatchingStartHour": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "sqlAutopatchingWindowDuration": {
+      "type": "int",
+      "value": 60
+    },
     "retryCount": {
       "type": "int",
       "defaultValue": 3
@@ -1393,6 +1409,12 @@
         "leastPrivilegeMode": "Enabled",
         "sqlImageSku": "Enterprise",
         "enableAutomaticUpgrade": "true",
+        "AutoPatchingSettings": {
+          "Enable": "[parameters('sqlAutopatching')]",
+          "DayOfWeek": "[parameters('sqlAutopatchingDayOfWeek')]",
+          "MaintenanceWindowStartingHour": "[parameters('sqlAutopatchingStartHour')]",
+          "MaintenanceWindowDuration": "[parameters('sqlAutopatchingWindowDuration')]"
+        },
         "StorageConfigurationSettings": {
           "DiskConfigurationType": "NEW",
           "StorageWorkloadType": "OLTP",
