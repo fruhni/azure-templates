@@ -165,7 +165,7 @@
     },
     "sqlAutopatchingWindowDuration": {
       "type": "string",
-      "value": "60"
+      "defaultValue": "60"
     },
     "retryCount": {
       "type": "int",
