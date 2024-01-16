@@ -227,8 +227,8 @@
         "OSType": "Windows"
       },
       "Windows Server 2022 Hotpatch": {
-        "sku": "windows-server-2022-azure-edition-hotpatch",
-        "offer": "windowsserverhotpatch-previews",
+        "sku": "2022-datacenter-azure-edition-hotpatch",
+        "offer": "WindowsServer",
         "publisher": "microsoftwindowsserver",
         "OSType": "Windows"
       },
@@ -1247,11 +1247,6 @@
           "rebootSetting": "Never"
         }
     },
-    "plan": {        
-      "name": "windows-server-2022-azure-edition-hotpatch",
-      "publisher": "microsoftwindowsserver",
-      "product": "windowsserverhotpatch-previews"
-    },
     "AutoPatchingSettings": {
       "Enable": "[parameters('sqlAutopatching')]",
       "DayOfWeek": "[parameters('sqlAutopatchingDayOfWeek')]",
@@ -1352,8 +1347,7 @@
             }
           ]
         }
-      },
-      "plan": "[if(equals(variables('images')[parameters('osType')].sku, 'windows-server-2022-azure-edition-hotpatch'),variables('plan'), json('null'))]"
+      }
     },
     {
       "apiVersion": "[providers('Microsoft.DevTestLab','labs').apiVersions[0]]",
