@@ -652,7 +652,7 @@
           "useFastNetwork": true
         },
         "SQL": {
-          "vmSize": "Standard_D32s_v5",
+          "vmSize": "Standard_D8ads_v5",
           "disks": [
             {
               "lun": 0,
@@ -742,7 +742,7 @@
           "useFastNetwork": true
         },
         "other": {
-          "vmSize": "Standard_D32s_v5",
+          "vmSize": "Standard_D8ads_v5",
           "disks": [
             {
               "lun": 0,
