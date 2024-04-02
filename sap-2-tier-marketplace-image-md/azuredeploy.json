@@ -13,6 +13,10 @@
         "Windows Server 2022 Azure",
         "Windows Server 2022 Hotpatch",
         "Windows Server 2022 SQL",
+        "Windows Server 2025 Datacenter",
+        "Windows Server 2025 Azure",
+        "Windows Server 2025 Hotpatch",
+        "Windows Server 2025 SQL",
         "SLES 12",
         "SLES 15",
         "RHEL 7",
@@ -235,6 +239,30 @@
       "Windows Server 2022 SQL": {
         "sku": "enterprise-gen2",
         "offer": "sql2022-ws2022",
+        "publisher": "microsoftsqlserver",
+        "OSType": "Windows"
+      },
+      "Windows Server 2025 Datacenter": {
+        "sku": "2025-Datacenter",
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "OSType": "Windows"
+      },
+      "Windows Server 2025 Azure": {
+        "sku": "2025-datacenter-azure-edition",
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "OSType": "Windows"
+      },
+      "Windows Server 2025 Hotpatch": {
+        "sku": "2025-datacenter-azure-edition-hotpatch",
+        "offer": "WindowsServer",
+        "publisher": "microsoftwindowsserver",
+        "OSType": "Windows"
+      },
+      "Windows Server 2025 SQL": {
+        "sku": "enterprise-gen2",
+        "offer": "sql2022-ws2025",
         "publisher": "microsoftsqlserver",
         "OSType": "Windows"
       },
