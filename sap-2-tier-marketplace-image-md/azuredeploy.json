@@ -269,6 +269,9 @@
       "Windows Server 2025 Azure": {
         "imageReference": {
           "id": "/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/rg_D067737/providers/Microsoft.Compute/images/win2025azure",
+          "sku": "2025-datacenter-azure-edition",
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
           "OSType": "Windows"
         }
       },
