@@ -1350,7 +1350,7 @@
           "vmSize": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].vmSize]"
         },
         "storageProfile": {
-          "imageReference": "[variables('images')[parameters('osType')]]",
+          "imageReference": "[variables('images').[parameters('osType')]]",
           "dataDisks": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].disks]"
         },
         "osProfile": {
