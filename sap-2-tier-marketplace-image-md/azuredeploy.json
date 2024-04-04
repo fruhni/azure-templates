@@ -238,9 +238,9 @@
         "imageReference": {
           "sku": "2022-datacenter-azure-edition",
           "offer": "WindowsServer",
-          "publisher": "MicrosoftWindowsServer",
-          "OSType": "Windows"
-        }
+          "publisher": "MicrosoftWindowsServer"
+        },
+        "OSType": "Windows"
       },
       "Windows Server 2022 Hotpatch": {
         "imageReference": {
@@ -324,7 +324,7 @@
         }
       }
     },
-    "internalOSType": "[variables('images')[parameters('osType')].imageReference.OSType]",
+    "internalOSType": "[variables('images')[parameters('osType')].OSType]",
     "csExtension": {
       "Windows": {
         "Publisher": "Microsoft.Compute",
