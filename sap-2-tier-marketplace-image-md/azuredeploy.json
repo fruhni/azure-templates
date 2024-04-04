@@ -252,8 +252,7 @@
         "sku": "2025-datacenter-azure-edition",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows",
-        "id": "/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/rg_D067737/providers/Microsoft.Compute/images/win2025azure"
+        "OSType": "Windows"
       },
       "Windows Server 2025 Hotpatch": {
         "sku": "2025-datacenter-azure-edition-hotpatch",
@@ -1350,7 +1349,12 @@
           "vmSize": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].vmSize]"
         },
         "storageProfile": {
-          "imageReference": "[variables('images').[parameters('osType')]]",
+          "imageReference": {
+            "publisher": "[variables('images')[parameters('osType')].publisher]",
+            "offer": "[variables('images')[parameters('osType')].offer]",
+            "sku": "[variables('images')[parameters('osType')].sku]",
+            "version": "latest"
+          },
           "dataDisks": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].disks]"
         },
         "osProfile": {
