@@ -196,112 +196,129 @@
     "images": {
       "Windows Server 2012 Datacenter": {
         "imageReference": {
-        "sku": "2012-Datacenter",
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"}
+          "sku": "2012-Datacenter",
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2012 R2 Datacenter": {
         "imageReference": {
-        "sku": "2012-R2-Datacenter",
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"}
+          "sku": "2012-R2-Datacenter",
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2016 Datacenter": {
         "imageReference": {
-        "sku": "2016-Datacenter",
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"}
+          "sku": "2016-Datacenter",
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2019 Datacenter": {
         "imageReference": {
-        "sku": "2019-Datacenter",
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"}
+          "sku": "2019-Datacenter",
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2022 Datacenter": {
         "imageReference": {
-        "sku": "2022-Datacenter",
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"}
+          "sku": "2022-Datacenter",
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2022 Azure": {
         "imageReference": {
-        "sku": "2022-datacenter-azure-edition",
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"}
+          "sku": "2022-datacenter-azure-edition",
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2022 Hotpatch": {
         "imageReference": {
-        "sku": "2022-datacenter-azure-edition-hotpatch",
-        "offer": "WindowsServer",
-        "publisher": "microsoftwindowsserver",
-        "OSType": "Windows"}
+          "sku": "2022-datacenter-azure-edition-hotpatch",
+          "offer": "WindowsServer",
+          "publisher": "microsoftwindowsserver",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2022 SQL": {
         "imageReference": {
-        "sku": "enterprise-gen2",
-        "offer": "sql2022-ws2022",
-        "publisher": "microsoftsqlserver",
-        "OSType": "Windows"}
+          "sku": "enterprise-gen2",
+          "offer": "sql2022-ws2022",
+          "publisher": "microsoftsqlserver",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2025 Datacenter": {
         "imageReference": {
-        "sku": "2025-Datacenter",
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"}
+          "sku": "2025-Datacenter",
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2025 Azure": {
         "imageReference": {
-        "id": "/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/rg_D067737/providers/Microsoft.Compute/images/win2025azure"}
+          "id": "/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/rg_D067737/providers/Microsoft.Compute/images/win2025azure",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2025 Hotpatch": {
         "imageReference": {
-        "sku": "2025-datacenter-azure-edition-hotpatch",
-        "offer": "WindowsServer",
-        "publisher": "microsoftwindowsserver",
-        "OSType": "Windows"}
+          "sku": "2025-datacenter-azure-edition-hotpatch",
+          "offer": "WindowsServer",
+          "publisher": "microsoftwindowsserver",
+          "OSType": "Windows"
+        }
       },
       "Windows Server 2025 SQL": {
         "imageReference": {
-        "sku": "enterprise-gen2",
-        "offer": "sql2022-ws2025",
-        "publisher": "microsoftsqlserver",
-        "OSType": "Windows"}
+          "sku": "enterprise-gen2",
+          "offer": "sql2022-ws2025",
+          "publisher": "microsoftsqlserver",
+          "OSType": "Windows"
+        }
       },
       "SLES 12": {
         "imageReference": {
-        "sku": "12-SP4",
-        "offer": "SLES-SAP",
-        "publisher": "SUSE",
-        "OSType": "Linux"}
+          "sku": "12-SP4",
+          "offer": "SLES-SAP",
+          "publisher": "SUSE",
+          "OSType": "Linux"
+        }
       },
       "SLES 15": {
         "imageReference": {
-        "sku": "gen2",
-        "offer": "sles-sap-15-sp3",
-        "publisher": "SUSE",
-        "OSType": "Linux"}
+          "sku": "gen2",
+          "offer": "sles-sap-15-sp3",
+          "publisher": "SUSE",
+          "OSType": "Linux"
+        }
       },
       "RHEL 7": {
         "imageReference": {
-        "sku": "7.5",
-        "offer": "RHEL-SAP",
-        "publisher": "RedHat",
-        "OSType": "Linux"}
+          "sku": "7.5",
+          "offer": "RHEL-SAP",
+          "publisher": "RedHat",
+          "OSType": "Linux"
+        }
       },
       "Oracle Linux 7": {
         "imageReference": {
-        "sku": "7.5",
-        "offer": "Oracle-Linux",
-        "publisher": "Oracle",
-        "OSType": "Linux"}
+          "sku": "7.5",
+          "offer": "Oracle-Linux",
+          "publisher": "Oracle",
+          "OSType": "Linux"
+        }
       }
     },
     "internalOSType": "[variables('images')[parameters('osType')].imageReference.OSType]",
@@ -1282,11 +1299,11 @@
     },
     "selectedSubnetId": "[variables('subnets')[string(equals(length(parameters('subnetId')), 0))]]",
     "patchSettings": {
-        "enableHotpatching": true,
-        "patchMode":         "AutomaticByPlatform",
-        "automaticByPlatformSettings": {
-          "rebootSetting": "Never"
-        }
+      "enableHotpatching": true,
+      "patchMode": "AutomaticByPlatform",
+      "automaticByPlatformSettings": {
+        "rebootSetting": "Never"
+      }
     },
     "AutoPatchingSettings": {
       "Enable": "[parameters('sqlAutopatching')]",
