@@ -195,103 +195,116 @@
     "selectedZones": "[if(equals(parameters('availabilityZone'),0), json('null'), array(parameters('availabilityZone')))]",
     "images": {
       "Windows Server 2012 Datacenter": {
+        "imageReference": {
         "sku": "2012-Datacenter",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2012 R2 Datacenter": {
+        "imageReference": {
         "sku": "2012-R2-Datacenter",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2016 Datacenter": {
+        "imageReference": {
         "sku": "2016-Datacenter",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2019 Datacenter": {
+        "imageReference": {
         "sku": "2019-Datacenter",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2022 Datacenter": {
+        "imageReference": {
         "sku": "2022-Datacenter",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2022 Azure": {
+        "imageReference": {
         "sku": "2022-datacenter-azure-edition",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2022 Hotpatch": {
+        "imageReference": {
         "sku": "2022-datacenter-azure-edition-hotpatch",
         "offer": "WindowsServer",
         "publisher": "microsoftwindowsserver",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2022 SQL": {
+        "imageReference": {
         "sku": "enterprise-gen2",
         "offer": "sql2022-ws2022",
         "publisher": "microsoftsqlserver",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2025 Datacenter": {
+        "imageReference": {
         "sku": "2025-Datacenter",
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2025 Azure": {
-        "sku": "2025-datacenter-azure-edition",
-        "offer": "WindowsServer",
-        "publisher": "MicrosoftWindowsServer",
-        "OSType": "Windows"
+        "imageReference": {
+        "id": "/subscriptions/2e3da591-1da8-437b-8c2e-81565bd2cfa4/resourceGroups/rg_D067737/providers/Microsoft.Compute/images/win2025azure"}
       },
       "Windows Server 2025 Hotpatch": {
+        "imageReference": {
         "sku": "2025-datacenter-azure-edition-hotpatch",
         "offer": "WindowsServer",
         "publisher": "microsoftwindowsserver",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "Windows Server 2025 SQL": {
+        "imageReference": {
         "sku": "enterprise-gen2",
         "offer": "sql2022-ws2025",
         "publisher": "microsoftsqlserver",
-        "OSType": "Windows"
+        "OSType": "Windows"}
       },
       "SLES 12": {
+        "imageReference": {
         "sku": "12-SP4",
         "offer": "SLES-SAP",
         "publisher": "SUSE",
-        "OSType": "Linux"
+        "OSType": "Linux"}
       },
       "SLES 15": {
+        "imageReference": {
         "sku": "gen2",
         "offer": "sles-sap-15-sp3",
         "publisher": "SUSE",
-        "OSType": "Linux"
+        "OSType": "Linux"}
       },
       "RHEL 7": {
+        "imageReference": {
         "sku": "7.5",
         "offer": "RHEL-SAP",
         "publisher": "RedHat",
-        "OSType": "Linux"
+        "OSType": "Linux"}
       },
       "Oracle Linux 7": {
+        "imageReference": {
         "sku": "7.5",
         "offer": "Oracle-Linux",
         "publisher": "Oracle",
-        "OSType": "Linux"
+        "OSType": "Linux"}
       }
     },
-    "internalOSType": "[variables('images')[parameters('osType')].OSType]",
+    "internalOSType": "[variables('images')[parameters('osType')].imageReference.OSType]",
     "csExtension": {
       "Windows": {
         "Publisher": "Microsoft.Compute",
@@ -416,7 +429,7 @@
             }
           ],
           "scriptArguments": {
-            "Windows": "[if(equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver'), '-luns \"0\" -names \"sap\" -paths \"S\"  -sizes \"100\"', '-luns \"0#1\" -names \"data#sap\" -paths \"C:\\sql\\data,C:\\sql\\log#S\"  -sizes \"70,100#100\"')]"
+            "Windows": "[if(equals(variables('images')[parameters('osType')].imageReference.publisher,'microsoftsqlserver'), '-luns \"0\" -names \"sap\" -paths \"S\"  -sizes \"100\"', '-luns \"0#1\" -names \"data#sap\" -paths \"C:\\sql\\data,C:\\sql\\log#S\"  -sizes \"70,100#100\"')]"
           },
           "useFastNetwork": false
         },
@@ -1349,12 +1362,7 @@
           "vmSize": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].vmSize]"
         },
         "storageProfile": {
-          "imageReference": {
-            "publisher": "[variables('images')[parameters('osType')].publisher]",
-            "offer": "[variables('images')[parameters('osType')].offer]",
-            "sku": "[variables('images')[parameters('osType')].sku]",
-            "version": "latest"
-          },
+          "imageReference": "[variables('images')[parameters('osType')].imageReference]",
           "dataDisks": "[variables('sizes')[parameters('sapSystemSize')][parameters('dbType')].disks]"
         },
         "osProfile": {
@@ -1365,7 +1373,7 @@
           "windowsConfiguration": {
             "enableAutomaticUpdates": true,
             "provisionVmAgent": true,
-            "patchSettings": "[if(equals(variables('images')[parameters('osType')].sku, 'windows-server-2022-azure-edition-hotpatch'),variables('patchSettings'), json('null'))]"
+            "patchSettings": "[if(equals(variables('images')[parameters('osType')].imageReference.sku, 'windows-server-2022-azure-edition-hotpatch'),variables('patchSettings'), json('null'))]"
           }
         },
         "networkProfile": {
@@ -1422,7 +1430,7 @@
     },
     {
       "type": "Microsoft.SqlVirtualMachine/sqlVirtualMachines",
-      "condition": "[equals(variables('images')[parameters('osType')].publisher,'microsoftsqlserver')]",
+      "condition": "[equals(variables('images')[parameters('osType')].imageReference.publisher,'microsoftsqlserver')]",
       "apiVersion": "2023-01-01-preview",
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
@@ -1432,7 +1440,7 @@
       ],
       "properties": {
         "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines/', parameters('vmName'))]",
-        "sqlImageOffer": "[variables('images')[parameters('osType')].offer]",
+        "sqlImageOffer": "[variables('images')[parameters('osType')].imageReference.offer]",
         "sqlServerLicenseType": "AHUB",
         "sqlManagement": "Full",
         "leastPrivilegeMode": "Enabled",
