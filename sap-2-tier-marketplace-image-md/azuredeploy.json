@@ -324,7 +324,7 @@
         }
       }
     },
-    "internalOSType": "[variables('images')[parameters('osType')].imageReference.OSType]",
+    "internalOSType": "[variables('images').[parameters('osType')].imageReference.OSType]",
     "csExtension": {
       "Windows": {
         "Publisher": "Microsoft.Compute",
