@@ -267,14 +267,14 @@
         "OSType": "Windows"
       },
       "SLES 12": {
-        "sku": "12-SP4",
-        "offer": "SLES-SAP",
+        "sku": "gen2",
+        "offer": "sles-sap-12-sp5-byos",
         "publisher": "SUSE",
         "OSType": "Linux"
       },
       "SLES 15": {
         "sku": "gen2",
-        "offer": "sles-sap-15-sp3",
+        "offer": "sles-sap-15-sp3-byos",
         "publisher": "SUSE",
         "OSType": "Linux"
       },
