@@ -1280,6 +1280,11 @@
       "DayOfWeek": "[parameters('sqlAutopatchingDayOfWeek')]",
       "MaintenanceWindowStartingHour": "[parameters('sqlAutopatchingStartHour')]",
       "MaintenanceWindowDuration": "[parameters('sqlAutopatchingWindowDuration')]"
+    },
+    "windowsConfiguration": {
+        "enableAutomaticUpdates": true,
+        "provisionVmAgent": true,
+        "patchSettings": "[if(equals(variables('images')[parameters('osType')].sku, 'windows-server-2022-azure-edition-hotpatch'),variables('patchSettings'), json('null'))]"
     }
   },
   "resources": [
@@ -1361,12 +1366,8 @@
           "computerName": "[parameters('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPasswordOrKey')]",
-          "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]",
-          "windowsConfiguration": {
-            "enableAutomaticUpdates": true,
-            "provisionVmAgent": true,
-            "patchSettings": "[if(equals(variables('images')[parameters('osType')].sku, 'windows-server-2022-azure-edition-hotpatch'),variables('patchSettings'), json('null'))]"
-          }
+          "windowsConfiguration": "[if(equals(variables('images')[parameters('osType')].sku, 'windows-server-2022-azure-edition-hotpatch'),variables('windowsConfiguration'), json('null'))]",
+          "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
         },
         "networkProfile": {
           "networkInterfaces": [
