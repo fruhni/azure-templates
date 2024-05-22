@@ -268,7 +268,7 @@
       },
       "SLES 12": {
         "sku": "gen2",
-        "offer": "sles-sap-12-sp5-byos",
+        "offer": "sles-sap-12-sp5",
         "publisher": "SUSE",
         "OSType": "Linux"
       },
